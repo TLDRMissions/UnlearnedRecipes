@@ -1,0 +1,8 @@
+package-as: UnlearnedRecipes
+
+move-folders:
+ UnlearnedRecipes/Source: UnlearnedRecipes
+
+ignore:
+ - LICENCE.md
+ - README.md
