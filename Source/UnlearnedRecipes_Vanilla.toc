@@ -11,6 +11,13 @@
 enums.lua
 
 db\vanilla\Alchemy.lua
+db\vanilla\Blacksmithing.lua
+db\vanilla\Enchanting.lua
+db\vanilla\Engineering.lua
+db\vanilla\GnomishEngineering.lua
+db\vanilla\GoblinEngineering.lua
+db\vanilla\Leatherworking.lua
+db\vanilla\Smelting.lua
 db\vanilla\Tailoring.lua
 
 db\vanilla\vendors.lua
