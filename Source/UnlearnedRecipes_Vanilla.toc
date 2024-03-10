@@ -1,0 +1,19 @@
+## Interface: 11502
+## Title: Unlearned Recipes
+## Version: @project-version@
+## Notes: Displays profession recipes you have not yet learned
+## Author: Teelo
+## X-Curse-Project-ID: 
+## IconTexture: Interface\Icons\inv_scroll_03
+## LoadOnDemand: 1
+## LoadWith: Blizzard_TradeSkillUI
+
+enums.lua
+
+db\vanilla\Alchemy.lua
+db\vanilla\Tailoring.lua
+
+db\vanilla\vendors.lua
+db\vanilla\Corrections.lua
+
+main.lua
