@@ -32,5 +32,7 @@ addon.Enums.Sources.Unknown = 3
 
 addon.Strings.Sources = {}
 addon.Strings.Sources.Trainer = TUTORIAL_TITLE14
+addon.Strings.Sources.Item = HELPFRAME_ITEM_TITLE
+addon.Strings.Sources.Unknown = QUEUED_STATUS_UNKNOWN
 
 addon.db = {}
