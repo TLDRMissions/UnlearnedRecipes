@@ -8,7 +8,6 @@ hooksecurefunc("TradeSkillFrame_OnEvent", function()
 end)
 
 function TradeSkillFrame_Update()
-    
 	local numTradeSkills = GetNumTradeSkills();
 	local db = dbCache[GetTradeSkillLine()]
     
@@ -158,9 +157,8 @@ function TradeSkillFrame_Update()
                 skillButton:SetID(skillIndex)
                 skillButton:Show()
                 skillButton:SetText(data.header)
-                skillButton:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
-                getglobal("TradeSkillSkill"..i.."Highlight"):SetTexture("Interface\\Buttons\\UI-PlusButton-Hilight");
-    			getglobal("TradeSkillSkill"..i):UnlockHighlight()
+                skillButton:ClearNormalTexture()
+                getglobal("TradeSkillSkill"..i.."Highlight"):SetTexture("")
             else
     			skillButton:SetNormalFontObject("GameFontNormalLeftRed");
 
@@ -169,9 +167,6 @@ function TradeSkillFrame_Update()
     			
         		skillButton:ClearNormalTexture();
         		getglobal("TradeSkillSkill"..i.."Highlight"):SetTexture("");
-        		if not skillName then
-                    print(data.spellID, GetSpellInfo(data.spellID))
-                end
                 skillButton:SetText(" "..skillName);
         		
         		-- Place the highlight and lock the highlight state
@@ -212,4 +207,162 @@ function TradeSkillFrame_Update()
 		TradeSkillCollapseAllButton.collapsed = 1;
 		TradeSkillCollapseAllButton:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
 	end
+end
+
+function TradeSkillFrame_SetSelection(id)
+	local numTradeSkills = GetNumTradeSkills();
+    if id > numTradeSkills then
+        local db = dbCache[GetTradeSkillLine()]
+        if not db then return end
+        
+        local data = db[id - numTradeSkills]
+        if data.header then return end
+        
+        local skillName = GetSpellInfo(data.spellID)
+        local skillSource = data.source
+        
+        TradeSkillSkillName:SetText(skillName)
+        TradeSkillSkillCooldown:SetText("")
+    	
+        local icon = C_Item.GetItemIconByID(data.itemID)
+    	if (icon) then
+    		TradeSkillSkillIcon:SetNormalTexture(icon);
+    	else
+    		TradeSkillSkillIcon:ClearNormalTexture();
+    	end
+        TradeSkillSkillIconCount:SetText("")
+        
+        for i=1, MAX_TRADE_SKILL_REAGENTS, 1 do
+		    getglobal("TradeSkillReagent"..i):Hide()
+	    end
+        
+        TradeSkillCreateButton:Disable();
+		TradeSkillCreateAllButton:Disable()
+        
+        TradeSkillRequirementLabel:Show()
+		
+        if skillSource == sources.Trainer then
+            TradeSkillRequirementText:SetText(addon.Strings.Sources.Trainer)
+        end
+        
+        return
+    end
+    
+	local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(id);
+	TradeSkillHighlightFrame:Show();
+	if ( skillType == "header" ) then
+		TradeSkillHighlightFrame:Hide();
+		if ( isExpanded ) then
+			CollapseTradeSkillSubClass(id);
+		else
+			ExpandTradeSkillSubClass(id);
+		end
+		return;
+	end
+	TradeSkillFrame.selectedSkill = id;
+	SelectTradeSkill(id);
+	if ( GetTradeSkillSelectionIndex() > GetNumTradeSkills() ) then
+		return;
+	end
+	local color = TradeSkillTypeColor[skillType];
+	if ( color ) then
+		TradeSkillHighlight:SetVertexColor(color.r, color.g, color.b);
+	end
+
+	-- General Info
+	local skillLineName, skillLineRank, skillLineMaxRank = GetTradeSkillLine();
+	TradeSkillFrameTitleText:SetText(format(TRADE_SKILL_TITLE, skillLineName));
+	-- Set statusbar info
+	TradeSkillRankFrameSkillName:SetText(skillLineName);
+	TradeSkillRankFrame:SetStatusBarColor(0.0, 0.0, 1.0, 0.5);
+	TradeSkillRankFrameBackground:SetVertexColor(0.0, 0.0, 0.75, 0.5);
+	TradeSkillRankFrame:SetMinMaxValues(0, skillLineMaxRank);
+	TradeSkillRankFrame:SetValue(skillLineRank);
+	TradeSkillRankFrameSkillRank:SetText(skillLineRank.."/"..skillLineMaxRank);
+
+	TradeSkillSkillName:SetText(skillName);
+	if ( GetTradeSkillCooldown(id) ) then
+		TradeSkillSkillCooldown:SetText(COOLDOWN_REMAINING.." "..SecondsToTime(GetTradeSkillCooldown(id)));
+	else
+		TradeSkillSkillCooldown:SetText("");
+	end
+	local icon = GetTradeSkillIcon(id);
+	if (icon) then
+		TradeSkillSkillIcon:SetNormalTexture(icon);
+	else
+		TradeSkillSkillIcon:ClearNormalTexture();
+	end
+	local minMade,maxMade = GetTradeSkillNumMade(id);
+	if ( maxMade > 1 ) then
+		if ( minMade == maxMade ) then
+			TradeSkillSkillIconCount:SetText(minMade);
+		else
+			TradeSkillSkillIconCount:SetText(minMade.."-"..maxMade);
+		end
+		if ( TradeSkillSkillIconCount:GetWidth() > 39 ) then
+			TradeSkillSkillIconCount:SetText("~"..floor((minMade + maxMade)/2));
+		end
+	else
+		TradeSkillSkillIconCount:SetText("");
+	end
+
+	-- Reagents
+	local creatable = 1;
+	local numReagents = GetTradeSkillNumReagents(id);
+	for i=1, numReagents, 1 do
+		local reagentName, reagentTexture, reagentCount, playerReagentCount = GetTradeSkillReagentInfo(id, i);
+		local reagent = getglobal("TradeSkillReagent"..i)
+		local name = getglobal("TradeSkillReagent"..i.."Name");
+		local count = getglobal("TradeSkillReagent"..i.."Count");
+		if ( not reagentName or not reagentTexture ) then
+			reagent:Hide();
+		else
+			reagent:Show();
+			SetItemButtonTexture(reagent, reagentTexture);
+			name:SetText(reagentName);
+			-- Grayout items
+			if ( playerReagentCount < reagentCount ) then
+				SetItemButtonTextureVertexColor(reagent, 0.5, 0.5, 0.5);
+				name:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+				creatable = nil;
+			else
+				SetItemButtonTextureVertexColor(reagent, 1.0, 1.0, 1.0);
+				name:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b);
+			end
+			if ( playerReagentCount >= 100 ) then
+				playerReagentCount = "*";
+			end
+			count:SetText(playerReagentCount.." /"..reagentCount);
+		end
+	end
+	-- Place reagent label
+	local reagentToAnchorTo = numReagents;
+	if ( (numReagents > 0) and (mod(numReagents, 2) == 0) ) then
+		reagentToAnchorTo = reagentToAnchorTo - 1;
+	end
+
+	for i=numReagents + 1, MAX_TRADE_SKILL_REAGENTS, 1 do
+		getglobal("TradeSkillReagent"..i):Hide();
+	end
+
+	local spellFocus = BuildColoredListString(GetTradeSkillTools(id));
+	if ( spellFocus ) then
+		TradeSkillRequirementLabel:Show();
+		TradeSkillRequirementText:SetText(spellFocus);
+	else
+		TradeSkillRequirementLabel:Hide();
+		TradeSkillRequirementText:SetText("");
+	end
+
+	if ( creatable ) then
+		TradeSkillCreateButton:Enable();
+		TradeSkillCreateAllButton:Enable();
+	else
+		TradeSkillCreateButton:Disable();
+		TradeSkillCreateAllButton:Disable();
+	end
+	TradeSkillDetailScrollFrame:UpdateScrollChildRect();
+
+	-- Reset the number of items to be created
+	TradeSkillInputBox:SetNumber(GetTradeskillRepeatCount());
 end
