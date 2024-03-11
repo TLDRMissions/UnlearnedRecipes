@@ -210,7 +210,9 @@ function TradeSkillFrame_Update()
 end
 
 function TradeSkillFrame_SetSelection(id)
-	local numTradeSkills = GetNumTradeSkills();
+    TradeSkillFrame.selectedSkill = id
+    TradeSkillFrame.unlearnedSelected = nil
+    local numTradeSkills = GetNumTradeSkills();
     if id > numTradeSkills then
         local db = dbCache[GetTradeSkillLine()]
         if not db then return end
@@ -233,17 +235,19 @@ function TradeSkillFrame_SetSelection(id)
         TradeSkillSkillIconCount:SetText("")
         
         for i=1, MAX_TRADE_SKILL_REAGENTS, 1 do
-		    getglobal("TradeSkillReagent"..i):Hide()
-	    end
+            getglobal("TradeSkillReagent"..i):Hide()
+        end
         
         TradeSkillCreateButton:Disable();
-		TradeSkillCreateAllButton:Disable()
+        TradeSkillCreateAllButton:Disable()
         
         TradeSkillRequirementLabel:Show()
-		
+
         if skillSource == sources.Trainer then
             TradeSkillRequirementText:SetText(addon.Strings.Sources.Trainer)
         end
+        
+        TradeSkillFrame.unlearnedSelected = true
         
         return
     end
@@ -259,7 +263,6 @@ function TradeSkillFrame_SetSelection(id)
 		end
 		return;
 	end
-	TradeSkillFrame.selectedSkill = id;
 	SelectTradeSkill(id);
 	if ( GetTradeSkillSelectionIndex() > GetNumTradeSkills() ) then
 		return;
@@ -366,3 +369,85 @@ function TradeSkillFrame_SetSelection(id)
 	-- Reset the number of items to be created
 	TradeSkillInputBox:SetNumber(GetTradeskillRepeatCount());
 end
+
+TradeSkillSkillIcon:SetScript("OnEnter", function()
+    local id = TradeSkillFrame.selectedSkill
+    if ( id ~= 0 ) then
+        local numTradeSkills = GetNumTradeSkills();
+        if id > numTradeSkills then
+            local db = dbCache[GetTradeSkillLine()]
+            if not db then return end
+            
+            local data = db[id - numTradeSkills]
+            if not data.itemID then return end
+            
+            GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
+		    GameTooltip:SetItemByID(data.itemID)
+		    CursorUpdate(TradeSkillSkillIcon);
+            
+            return
+        end
+		GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
+		GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill);
+		CursorUpdate(TradeSkillSkillIcon);
+    end
+end)
+
+TradeSkillSkillIcon.UpdateTooltip = function ()
+    local id = TradeSkillFrame.selectedSkill
+    if ( id ~= 0 ) then
+        local numTradeSkills = GetNumTradeSkills();
+        if id > numTradeSkills then
+            local db = dbCache[GetTradeSkillLine()]
+            if not db then return end
+            
+            local data = db[id - numTradeSkills]
+            if not data.itemID then return end
+            
+            GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
+		    GameTooltip:SetItemByID(data.itemID)
+		    CursorUpdate(TradeSkillSkillIcon);
+            
+            return
+        end
+		GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
+		GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill);
+		CursorUpdate(TradeSkillSkillIcon);
+    end
+end
+
+TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
+	if ( not TradeSkillFrame:IsVisible() ) then
+		return;
+	end
+	if ( event == "TRADE_SKILL_UPDATE" ) then
+        if (currentTradeSkillName ~= GetTradeSkillLine()) then
+			TradeSkillFrame_OnShow(TradeSkillFrame);
+			currentTradeSkillName = GetTradeSkillLine();
+            TradeSkillFrame.unlearnedSelected = nil
+		end
+		TradeSkillCreateButton:Disable();
+		TradeSkillCreateAllButton:Disable();
+		
+        if not TradeSkillFrame.unlearnedSelected then
+            if ( GetTradeSkillSelectionIndex() > 1 and GetTradeSkillSelectionIndex() <= GetNumTradeSkills() ) then
+    			TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
+    		else
+    			if ( GetNumTradeSkills() > 0 ) then
+    				TradeSkillFrame_SetSelection(GetFirstTradeSkill());
+    				FauxScrollFrame_SetOffset(TradeSkillListScrollFrame, 0);
+    			end
+    			TradeSkillListScrollFrameScrollBar:SetValue(0);
+    		end
+        end
+		TradeSkillFrame_Update();
+	elseif ( event == "UNIT_PORTRAIT_UPDATE" ) then
+		if ( arg1 == "player" ) then
+			SetPortraitTexture(TradeSkillFramePortrait, "player");
+		end
+	elseif ( event == "UPDATE_TRADESKILL_RECAST" ) then
+		TradeSkillInputBox:SetNumber(GetTradeskillRepeatCount());
+	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
+		TradeSkillFrame_Hide();
+	end
+end)
