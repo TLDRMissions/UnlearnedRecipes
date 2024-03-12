@@ -253,6 +253,43 @@ function TradeSkillFrame_SetSelection(id)
         
         TradeSkillRequirementLabel:Show()
 
+        -- Reagents
+        local reagents = data.reagents
+    	local numReagents = #reagents
+    	for i=1, numReagents, 1 do
+            local item = Item:CreateFromItemID(reagents[i])
+            item:ContinueOnItemLoad(function()
+                local reagentName = item:GetItemName()
+                local reagentTexture = item:GetItemIcon()
+                local reagentCount = data.reagentQuantities[i]
+                local playerReagentCount = GetItemCount(reagents[i])
+                
+                local reagent = getglobal("TradeSkillReagent"..i)
+                local name = getglobal("TradeSkillReagent"..i.."Name");
+                local count = getglobal("TradeSkillReagent"..i.."Count");
+    		
+                if ( not reagentName or not reagentTexture ) then
+    			    reagent:Hide();
+                else
+                    reagent:Show();
+                    SetItemButtonTexture(reagent, reagentTexture);
+                    name:SetText(reagentName);
+                    -- Grayout items
+                    if ( playerReagentCount < reagentCount ) then
+    				    SetItemButtonTextureVertexColor(reagent, 0.5, 0.5, 0.5);
+    				    name:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+    			    else
+    				    SetItemButtonTextureVertexColor(reagent, 1.0, 1.0, 1.0);
+    				    name:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b);
+    			    end
+    			    if ( playerReagentCount >= 100 ) then
+    				    playerReagentCount = "*";
+    			    end
+    			    count:SetText(playerReagentCount.." /"..reagentCount);
+    		    end
+            end)
+    	end
+        
         if skillSource == sources.Trainer then
             TradeSkillRequirementText:SetText(addon.Strings.Sources.Trainer)
         elseif skillSource == sources.Item then
@@ -537,3 +574,31 @@ end)
 TradeSkillSourceText:SetScript("OnLeave", function(self)
     GameTooltip:Hide()
 end)
+
+for i = 1, 8 do
+    local button = _G["TradeSkillReagent"..i]
+    button:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
+        if not TradeSkillFrame.unlearnedSelected then 
+            GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill, self:GetID());
+        else
+            local numTradeSkills = GetNumTradeSkills();
+            local db = dbCache[GetTradeSkillLine()]
+            local data = db[TradeSkillFrame.selectedSkill - numTradeSkills]
+            GameTooltip:SetItemByID(data.reagents[self:GetID()])
+        end
+        CursorUpdate(self);
+    end)
+    button.UpdateTooltip = function (self)
+        GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
+        if not TradeSkillFrame.unlearnedSelected then 
+            GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill, self:GetID());
+        else
+            local numTradeSkills = GetNumTradeSkills();
+            local db = dbCache[GetTradeSkillLine()]
+            local data = db[TradeSkillFrame.selectedSkill - numTradeSkills]
+            GameTooltip:SetItemByID(data.reagents[self:GetID()])
+        end
+        CursorUpdate(self);
+	end
+end
