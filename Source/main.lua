@@ -12,11 +12,15 @@ function TradeSkillFrame_Update()
 	local db = dbCache[GetTradeSkillLine()]
     
     if not db then
+        local skipCache = false
         for key, spellName in pairs(addon.Strings.Professions) do
             if spellName == GetTradeSkillLine() then
                 db = addon.db[key]
                 for i = 1, numTradeSkills do
                     local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(i)
+                    if not skillName or skillName == "" then
+                        skipCache = true
+                    end
                     for tableIndex, data in pairs(db) do
                         if GetSpellInfo(data.spellID) == skillName then
                             db[tableIndex] = nil
@@ -69,7 +73,9 @@ function TradeSkillFrame_Update()
                 table.insert(db, data)
             end
             
-            dbCache[GetTradeSkillLine()] = db
+            if not skipCache then
+                dbCache[GetTradeSkillLine()] = db
+            end
         end
     end
     
@@ -213,6 +219,10 @@ function TradeSkillFrame_SetSelection(id)
     TradeSkillFrame.selectedSkill = id
     TradeSkillFrame.unlearnedSelected = nil
     local numTradeSkills = GetNumTradeSkills();
+    
+    TradeSkillSkillRecipeIcon:Hide()
+    TradeSkillSourceText:Hide()
+    
     if id > numTradeSkills then
         local db = dbCache[GetTradeSkillLine()]
         if not db then return end
@@ -245,6 +255,45 @@ function TradeSkillFrame_SetSelection(id)
 
         if skillSource == sources.Trainer then
             TradeSkillRequirementText:SetText(addon.Strings.Sources.Trainer)
+        elseif skillSource == sources.Item then
+            TradeSkillRequirementText:SetText(addon.Strings.Sources.Recipe)
+            
+            local item = Item:CreateFromItemID(data.sourceItemID)
+            item:ContinueOnItemLoad(function()
+            	TradeSkillSkillRecipeIcon.itemLink = item:GetItemLink()
+                TradeSkillSkillRecipeIcon:SetNormalTexture(item:GetItemIcon())
+                TradeSkillSkillRecipeIcon:Show()
+            end)
+            
+            if data.itemSource == sources.Vendors then
+                local itemVendors = CopyTable(data.itemVendors)
+                local numVendors = 0
+                for key, vendorID in pairs(itemVendors) do
+                    local vendorData = addon.db.Vendors[vendorID]
+                    if not vendorData then
+                        itemVendors[key] = nil
+                    else
+                        numVendors = numVendors + 1
+                    end
+                end
+                if numVendors > 0 then
+                    local text = addon.Strings.Sources.Vendors..": "
+                    TradeSkillSourceText.vendors = {}
+                    local first = false
+                    for key, vendorID in pairs(itemVendors) do
+                        local vendorData = addon.db.Vendors[vendorID]
+                        table.insert(TradeSkillSourceText.vendors, vendorData)
+                        if not first then
+                            text = text..vendorData.name
+                            first = true
+                        else
+                            text = text..", "..vendorData.name
+                        end
+                        TradeSkillSourceText:SetText(text)
+                        TradeSkillSourceText:Show()
+                    end
+                end
+            end
         end
         
         TradeSkillFrame.unlearnedSelected = true
@@ -450,4 +499,41 @@ TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
 	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
 		TradeSkillFrame_Hide();
 	end
+end)
+
+CreateFrame("Button", "TradeSkillSkillRecipeIcon", TradeSkillDetailScrollChildFrame)
+TradeSkillSkillRecipeIcon:SetSize(37, 37)
+TradeSkillSkillRecipeIcon:SetPoint("TOPRIGHT", TradeSkillDetailScrollChildFrame, "TOPRIGHT", -8, -3)
+TradeSkillSkillRecipeIcon:SetScript("OnClick", function(self)
+    if self.itemLink then
+        HandleModifiedItemClick(self.itemLink)
+    end
+end)
+TradeSkillSkillRecipeIcon:SetScript("OnEnter", function(self)
+    if self.itemLink then
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:SetHyperlink(self.itemLink)
+        CursorUpdate(self)
+    end
+end)
+TradeSkillSkillRecipeIcon:SetScript("OnLeave", function(self)
+    GameTooltip:Hide()
+    ResetCursor()
+end)
+
+TradeSkillDetailScrollChildFrame:CreateFontString("TradeSkillSourceText", "BACKGROUND", "GameFontHighlightSmall")
+TradeSkillSourceText:SetSize(180, 0)
+TradeSkillSourceText:SetPoint("TOPLEFT", TradeSkillRequirementLabel, "BOTTOMLEFT", 0, -2)
+TradeSkillSourceText:SetJustifyV("TOP")
+TradeSkillSourceText:SetJustifyH("LEFT")
+TradeSkillSourceText:SetScript("OnEnter", function(self)
+    local vendors = TradeSkillSourceText.vendors
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    for _, vendorData in ipairs(vendors) do
+        GameTooltip:AddDoubleLine(vendorData.name, C_Map.GetAreaInfo(vendorData.zoneID))
+    end
+    GameTooltip:Show()
+end)
+TradeSkillSourceText:SetScript("OnLeave", function(self)
+    GameTooltip:Hide()
 end)

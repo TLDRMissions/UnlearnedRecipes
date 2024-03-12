@@ -31,10 +31,14 @@ addon.Enums.Sources = {}
 addon.Enums.Sources.Trainer = 1
 addon.Enums.Sources.Item = 2
 addon.Enums.Sources.Unknown = 3
+addon.Enums.Sources.Recipe = 4
+addon.Enums.Sources.Vendors = 5
 
 addon.Strings.Sources = {}
 addon.Strings.Sources.Trainer = TUTORIAL_TITLE14
 addon.Strings.Sources.Item = HELPFRAME_ITEM_TITLE
 addon.Strings.Sources.Unknown = QUEUED_STATUS_UNKNOWN
+addon.Strings.Sources.Recipe = AUCTION_CATEGORY_RECIPES
+addon.Strings.Sources.Vendors = TUTORIAL_TITLE20
 
 addon.db = {}

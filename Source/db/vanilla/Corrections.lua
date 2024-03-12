@@ -30,3 +30,11 @@ addon.db.GnomishEngineering = nil
 
 -- Basic Campfire does not need to be included
 addon.db.Cooking[818] = nil
+
+-- Discard all vendor data of the opposite faction
+local playersFaction = (UnitFactionGroup("player") == "Horde") and addon.Enums.Reacts.Horde or addon.Enums.Reacts.Ally
+for vendorID, vendorData in pairs(addon.db.Vendors) do
+    if vendorData.react and (vendorData.react ~= playersFaction) then
+        addon.db.Vendors[vendorID] = nil
+    end
+end
