@@ -27,3 +27,6 @@ if C_QuestLog.IsQuestFlaggedCompleted(3643) then
 end
 addon.db.GoblinEngineering = nil
 addon.db.GnomishEngineering = nil
+
+-- Basic Campfire does not need to be included
+addon.db.Cooking[818] = nil

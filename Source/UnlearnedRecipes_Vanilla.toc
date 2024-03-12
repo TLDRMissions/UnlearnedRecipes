@@ -12,6 +12,7 @@ enums.lua
 
 db\vanilla\Alchemy.lua
 db\vanilla\Blacksmithing.lua
+db\vanilla\Cooking.lua
 db\vanilla\Enchanting.lua
 db\vanilla\Engineering.lua
 db\vanilla\GnomishEngineering.lua

@@ -332,6 +332,341 @@ addon.db.Vendors = {
 		name = 'Moam',
 		zoneID = 3429,
 	},
+	[5494] = {
+		name = 'Catherine Leland',
+		zoneID = 1519,
+		react = reacts.Ally
+	},
+	[5940] = {
+		name = 'Harn Longcast',
+		zoneID = 215,
+		react = reacts.Horde
+	},
+	[4574] = {
+		name = 'Lizbeth Cromwell',
+		zoneID = 1497,
+		react = reacts.Horde
+	},
+	[3029] = {
+		name = 'Sewa Mistrunner',
+		zoneID = 1638,
+		react = reacts.Horde
+	},
+	[3550] = {
+		name = 'Martine Tramblay',
+		zoneID = 85,
+		react = reacts.Horde
+	},
+	[4265] = {
+		name = 'Nyoma',
+		zoneID = 141,
+		react = reacts.Ally
+	},
+	[8508] = {
+		name = 'Gretta Ganter',
+		zoneID = 1,
+		react = reacts.Ally
+	},
+	[66] = {
+		name = 'Tharynn Bouden',
+		zoneID = 12,
+		react = reacts.Ally
+	},
+	[1684] = {
+		name = 'Khara Deepwater',
+		zoneID = 38,
+	},
+	[10118] = {
+		name = 'Nessa Shadowsong',
+		zoneID = 141,
+		react = reacts.Ally
+	},
+	[4305] = {
+		name = 'Kriggon Talsone',
+		zoneID = 40,
+		react = reacts.Ally
+	},
+	[5162] = {
+		name = 'Tansy Puddlefizz',
+		zoneID = 1537,
+		react = reacts.Ally
+	},
+	[5942] = {
+		name = 'Zansoa',
+		zoneID = 14,
+		react = reacts.Horde
+	},
+	[2118] = {
+		name = 'Abigail Shiel',
+		zoneID = 85,
+	},
+	[13420] = {
+		name = 'Penney Copperpinch',
+		zoneID = 1637,
+		react = reacts.Horde
+	},
+	[13433] = {
+		name = 'Wulmort Jinglepocket',
+		zoneID = 1537,
+		react = reacts.Ally
+	},
+	[13435] = {
+		name = 'Khole Jinglepocket',
+		zoneID = 1519,
+		react = reacts.Ally
+	},
+	[13432] = {
+		name = 'Seersa Copperpinch',
+		zoneID = 1638,
+		react = reacts.Horde
+	},
+	[216902] = {
+		name = 'Wulmort Jinglepocket',
+		zoneID = 1537,
+		react = reacts.Ally
+	},
+	[13429] = {
+		name = 'Nardstrum Copperpinch',
+		zoneID = 1497,
+		react = reacts.Horde
+	},
+	[3881] = {
+		name = 'Grimtak',
+		zoneID = 14,
+	},
+	[3081] = {
+		name = 'Wunna Darkmane',
+		zoneID = 215,
+	},
+	[3556] = {
+		name = 'Andrew Hilbert',
+		zoneID = 130,
+		react = reacts.Horde
+	},
+	[1465] = {
+		name = 'Drac Roughcut',
+		zoneID = 38,
+		react = reacts.Ally
+	},
+	[4200] = {
+		name = 'Laird',
+		zoneID = 148,
+	},
+	[3027] = {
+		name = 'Naal Mistrunner',
+		zoneID = 1638,
+		react = reacts.Horde
+	},
+	[5748] = {
+		name = 'Killian Sanatha',
+		zoneID = 130,
+		react = reacts.Horde
+	},
+	[3497] = {
+		name = 'Kilxx',
+		zoneID = 17,
+	},
+	[3333] = {
+		name = 'Shankys',
+		zoneID = 1637,
+		react = reacts.Horde
+	},
+	[4553] = {
+		name = 'Ronald Burch',
+		zoneID = 1497,
+		react = reacts.Horde
+	},
+	[3178] = {
+		name = 'Stuart Fleming',
+		zoneID = 11,
+		react = reacts.Ally
+	},
+	[4307] = {
+		name = 'Heldan Galesong',
+		zoneID = 148,
+		react = reacts.Ally
+	},
+	[12033] = {
+		name = 'Wulan',
+		zoneID = 405,
+		react = reacts.Horde
+	},
+	[3400] = {
+		name = 'Xen\'to',
+		zoneID = 1637,
+		react = reacts.Horde
+	},
+	[5483] = {
+		name = 'Erika Tate',
+		zoneID = 1519,
+		react = reacts.Ally
+	},
+	[4223] = {
+		name = 'Fyldan',
+		zoneID = 1657,
+		react = reacts.Ally
+	},
+	[2664] = {
+		name = 'Kelsey Yance',
+		zoneID = 33,
+	},
+	[8307] = {
+		name = 'Tarban Hearthgrain',
+		zoneID = 17,
+		react = reacts.Horde
+	},
+	[3085] = {
+		name = 'Gloria Femmel',
+		zoneID = 44,
+		react = reacts.Ally
+	},
+	[2397] = {
+		name = 'Derak Nightfall',
+		zoneID = 267,
+		react = reacts.Horde
+	},
+	[5160] = {
+		name = 'Emrul Riknussun',
+		zoneID = 1537,
+		react = reacts.Ally
+	},
+	[14738] = {
+		name = 'Otho Moji\'ko',
+		zoneID = 47,
+		react = reacts.Horde
+	},
+	[2381] = {
+		name = 'Micha Yance',
+		zoneID = 267,
+		react = reacts.Ally
+	},
+	[340] = {
+		name = 'Kendor Kabonka',
+		zoneID = 1519,
+		react = reacts.Ally
+	},
+	[3482] = {
+		name = 'Tari\'qa',
+		zoneID = 17,
+	},
+	[2383] = {
+		name = 'Lindea Rabonne',
+		zoneID = 267,
+		react = reacts.Ally
+	},
+	[3960] = {
+		name = 'Ulthaan',
+		zoneID = 331,
+		react = reacts.Ally
+	},
+	[12246] = {
+		name = 'Super-Seller 680',
+		zoneID = 405,
+	},
+	[4879] = {
+		name = 'Ogg\'marr',
+		zoneID = 15,
+		react = reacts.Horde
+	},
+	[12962] = {
+		name = 'Wik\'Tar',
+		zoneID = 331,
+		react = reacts.Horde
+	},
+	[2821] = {
+		name = 'Keena',
+		zoneID = 45,
+		react = reacts.Horde
+	},
+	[2810] = {
+		name = 'Hammon Karwn',
+		zoneID = 45,
+		react = reacts.Ally
+	},
+	[4897] = {
+		name = 'Helenia Olden',
+		zoneID = 15,
+		react = reacts.Ally
+	},
+	[734] = {
+		name = 'Corporal Bluth',
+		zoneID = 33,
+		react = reacts.Ally
+	},
+	[1148] = {
+		name = 'Nerrist',
+		zoneID = 33,
+		react = reacts.Horde
+	},
+	[7947] = {
+		name = 'Vivianna',
+		zoneID = 357,
+		react = reacts.Ally
+	},
+	[8145] = {
+		name = 'Sheendra Tallgrass',
+		zoneID = 357,
+		react = reacts.Horde
+	},
+	[9636] = {
+		name = 'Kireena',
+		zoneID = 405,
+		react = reacts.Horde
+	},
+	[989] = {
+		name = 'Banalash',
+		zoneID = 8,
+		react = reacts.Horde
+	},
+	[8150] = {
+		name = 'Janet Hommers',
+		zoneID = 405,
+		react = reacts.Ally
+	},
+	[1149] = {
+		name = 'Uthok',
+		zoneID = 33,
+		react = reacts.Horde
+	},
+	[2803] = {
+		name = 'Malygen',
+		zoneID = 361,
+		react = reacts.Ally
+	},
+	[11187] = {
+		name = 'Himmik',
+		zoneID = 618,
+	},
+	[2806] = {
+		name = 'Bale',
+		zoneID = 361,
+		react = reacts.Horde
+	},
+	[8137] = {
+		name = 'Gikkix',
+		zoneID = 440,
+	},
+	[8139] = {
+		name = 'Jabbey',
+		zoneID = 440,
+	},
+	[8125] = {
+		name = 'Dirge Quikcleave',
+		zoneID = 440,
+	},
+	[4782] = {
+		name = 'Truk Wildbeard',
+		zoneID = 47,
+		react = reacts.Ally
+	},
+	[7733] = {
+		name = 'Innkeeper Fizzgrimble',
+		zoneID = 440,
+	},
+	[14354] = {
+		name = 'Pusillin',
+		zoneID = 2557,
+	},
 	[15419] = {
 		name = 'Kania',
 		zoneID = 1377,
@@ -386,16 +721,6 @@ addon.db.Vendors = {
 		zoneID = 331,
 		react = reacts.Ally
 	},
-	[2821] = {
-		name = 'Keena',
-		zoneID = 45,
-		react = reacts.Horde
-	},
-	[2381] = {
-		name = 'Micha Yance',
-		zoneID = 267,
-		react = reacts.Ally
-	},
 	[674] = {
 		name = 'Venture Co. Strip Miner',
 		zoneID = 33,
@@ -404,11 +729,6 @@ addon.db.Vendors = {
 		name = 'Mythrin\'dir',
 		zoneID = 1657,
 		react = reacts.Ally
-	},
-	[989] = {
-		name = 'Banalash',
-		zoneID = 8,
-		react = reacts.Horde
 	},
 	[2642] = {
 		name = 'Vilebranch Shadowcaster',
@@ -535,10 +855,6 @@ addon.db.Vendors = {
 		name = 'Rizz Loosebolt',
 		zoneID = 36,
 	},
-	[12246] = {
-		name = 'Super-Seller 680',
-		zoneID = 405,
-	},
 	[4086] = {
 		name = 'Veenix',
 		zoneID = 406,
@@ -611,11 +927,6 @@ addon.db.Vendors = {
 		name = 'Mossflayer Shadowhunter',
 		zoneID = 139,
 	},
-	[3556] = {
-		name = 'Andrew Hilbert',
-		zoneID = 130,
-		react = reacts.Horde
-	},
 	[843] = {
 		name = 'Gina MacGregor',
 		zoneID = 40,
@@ -681,11 +992,6 @@ addon.db.Vendors = {
 		name = 'Blixrez Goodstitch',
 		zoneID = 33,
 	},
-	[2810] = {
-		name = 'Hammon Karwn',
-		zoneID = 45,
-		react = reacts.Ally
-	},
 	[4877] = {
 		name = 'Jandia',
 		zoneID = 400,
@@ -699,11 +1005,6 @@ addon.db.Vendors = {
 	[2699] = {
 		name = 'Rikqiz',
 		zoneID = 33,
-	},
-	[4897] = {
-		name = 'Helenia Olden',
-		zoneID = 15,
-		react = reacts.Ally
 	},
 	[7854] = {
 		name = 'Jangdor Swiftstrider',
@@ -866,11 +1167,6 @@ addon.db.Vendors = {
 		name = 'Aendel Windspear',
 		zoneID = 1377,
 	},
-	[66] = {
-		name = 'Tharynn Bouden',
-		zoneID = 12,
-		react = reacts.Ally
-	},
 	[3485] = {
 		name = 'Wrahk',
 		zoneID = 17,
@@ -948,11 +1244,6 @@ addon.db.Vendors = {
 	[2668] = {
 		name = 'Danielle Zipstitch',
 		zoneID = 10,
-	},
-	[9636] = {
-		name = 'Kireena',
-		zoneID = 405,
-		react = reacts.Horde
 	},
 	[2670] = {
 		name = 'Xizk Goodstitch',
