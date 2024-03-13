@@ -3,21 +3,20 @@ local sources = addon.Enums.Sources
 
 local dbCache = {}
 
-hooksecurefunc("TradeSkillFrame_OnEvent", function()
-    wipe(dbCache)
-end)
-
 function TradeSkillFrame_Update()
 	local numTradeSkills = GetNumTradeSkills();
 	local db = dbCache[GetTradeSkillLine()]
+    print(1, GetTradeSkillLine(), db)
     
     if not db then
+        print(2)
         local skipCache = false
         for key, spellName in pairs(addon.Strings.Professions) do
             if spellName == GetTradeSkillLine() then
                 db = addon.db[key]
                 for i = 1, numTradeSkills do
                     local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(i)
+                    print(i, skillName)
                     if not skillName or skillName == "" then
                         skipCache = true
                     end
@@ -302,6 +301,9 @@ function TradeSkillFrame_SetSelection(id)
                 TradeSkillSkillRecipeIcon:Show()
             end)
             
+            TradeSkillSourceText:Show()
+            TradeSkillSourceText.vendors = nil
+            
             if data.itemSource == sources.Vendors then
                 local itemVendors = CopyTable(data.itemVendors)
                 local numVendors = 0
@@ -327,9 +329,16 @@ function TradeSkillFrame_SetSelection(id)
                             text = text..", "..vendorData.name
                         end
                         TradeSkillSourceText:SetText(text)
-                        TradeSkillSourceText:Show()
                     end
+                else
+                    TradeSkillSourceText:SetText(FACTION .. " " .. LOCKED)
                 end
+            elseif data.itemSource == sources.WorldDrop then
+                TradeSkillSourceText:SetText(addon.Strings.Sources.WorldDrop)
+            elseif type(data.itemSource) == "string" then
+                TradeSkillSourceText:SetText(data.itemSource)
+            elseif data.itemSource == sources.Quest then
+                TradeSkillSourceText:SetText(addon.Strings.Sources.Quest)
             end
         end
         
@@ -516,6 +525,7 @@ TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
 		TradeSkillCreateAllButton:Disable();
 		
         if not TradeSkillFrame.unlearnedSelected then
+            wipe(dbCache)
             if ( GetTradeSkillSelectionIndex() > 1 and GetTradeSkillSelectionIndex() <= GetNumTradeSkills() ) then
     			TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
     		else
@@ -565,6 +575,7 @@ TradeSkillSourceText:SetJustifyV("TOP")
 TradeSkillSourceText:SetJustifyH("LEFT")
 TradeSkillSourceText:SetScript("OnEnter", function(self)
     local vendors = TradeSkillSourceText.vendors
+    if not vendors then return end
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     for _, vendorData in ipairs(vendors) do
         GameTooltip:AddDoubleLine(vendorData.name, C_Map.GetAreaInfo(vendorData.zoneID))
@@ -602,3 +613,11 @@ for i = 1, 8 do
         CursorUpdate(self);
 	end
 end
+
+TradeSkillFrame:HookScript("OnHide", function()
+    wipe(dbCache)
+end)
+
+hooksecurefunc("TradeSkillFrame_Hide", function()
+    wipe(dbCache)
+end)
