@@ -6,21 +6,21 @@ local dbCache = {}
 function TradeSkillFrame_Update()
 	local numTradeSkills = GetNumTradeSkills();
 	local db = dbCache[GetTradeSkillLine()]
-    print(1, GetTradeSkillLine(), db)
     
     if not db then
-        print(2)
         local skipCache = false
         for key, spellName in pairs(addon.Strings.Professions) do
             if spellName == GetTradeSkillLine() then
                 db = addon.db[key]
                 for i = 1, numTradeSkills do
                     local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(i)
-                    print(i, skillName)
                     if not skillName or skillName == "" then
                         skipCache = true
                     end
                     for tableIndex, data in pairs(db) do
+                        if GetSpellInfo(data.spellID) == nil then
+                            skipCache = true
+                        end
                         if GetSpellInfo(data.spellID) == skillName then
                             db[tableIndex] = nil
                         end
