@@ -1,7 +1,7 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
 
-addon.db.Smelting = {
+addon.db.Mining = {
 	[2657] = {
 		spellID = 2657,
 		minSkill = 25,
