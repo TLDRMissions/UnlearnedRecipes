@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Blacksmithing = {
 	[2660] = {
@@ -234,7 +235,7 @@ addon.db.Blacksmithing = {
 	},
 	[430397] = {
 		spellID = 430397,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 100,
 		itemID = 211845,
 		reagents = {2863, 10938, },
@@ -446,7 +447,7 @@ addon.db.Blacksmithing = {
 	},
 	[427061] = {
 		spellID = 427061,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 140,
 		itemID = 210773,
 		reagents = {2841, 1206, 1705, 5500, 2842, },
@@ -658,7 +659,7 @@ addon.db.Blacksmithing = {
 	},
 	[429348] = {
 		spellID = 429348,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 175,
 		itemID = 210794,
 		reagents = {2870, 211422, },
@@ -817,7 +818,7 @@ addon.db.Blacksmithing = {
 	},
 	[439132] = {
 		spellID = 439132,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 195,
 		itemID = 217285,
 		reagents = {3575, 3577, 3486, },
@@ -838,7 +839,7 @@ addon.db.Blacksmithing = {
 	},
 	[435910] = {
 		spellID = 435910,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 213376,
 		reagents = {6037, 213373, },
@@ -850,7 +851,7 @@ addon.db.Blacksmithing = {
 	},
 	[439130] = {
 		spellID = 439130,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 217283,
 		reagents = {3859, 3577, 3486, },
@@ -949,7 +950,7 @@ addon.db.Blacksmithing = {
 	},
 	[439128] = {
 		spellID = 439128,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 205,
 		itemID = 217281,
 		reagents = {3859, 3466, 3486, 1705, 4234, },
@@ -1014,7 +1015,7 @@ addon.db.Blacksmithing = {
 	},
 	[439126] = {
 		spellID = 439126,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 215,
 		itemID = 217279,
 		reagents = {3859, 3577, 3486, },
@@ -1055,7 +1056,7 @@ addon.db.Blacksmithing = {
 	},
 	[439124] = {
 		spellID = 439124,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 220,
 		itemID = 217277,
 		reagents = {3859, 3577, 3486, 1529, },
@@ -1098,7 +1099,7 @@ addon.db.Blacksmithing = {
 	},
 	[435906] = {
 		spellID = 435906,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215167,
 		reagents = {3860, 213376, 213379, 213383, },
@@ -1110,7 +1111,7 @@ addon.db.Blacksmithing = {
 	},
 	[435908] = {
 		spellID = 435908,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215161,
 		reagents = {3860, 213376, 213379, 213369, },
@@ -1122,7 +1123,7 @@ addon.db.Blacksmithing = {
 	},
 	[439120] = {
 		spellID = 439120,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 217273,
 		reagents = {3859, 3577, 3486, 3864, },
@@ -1134,7 +1135,7 @@ addon.db.Blacksmithing = {
 	},
 	[439122] = {
 		spellID = 439122,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 217275,
 		reagents = {3859, 3577, 3486, 3864, },

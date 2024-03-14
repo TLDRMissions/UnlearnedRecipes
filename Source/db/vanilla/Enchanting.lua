@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Enchanting = {
 	[7421] = {
@@ -170,7 +171,7 @@ addon.db.Enchanting = {
 	},
 	[430409] = {
 		spellID = 430409,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 100,
 		itemID = 211848,
 		reagents = {3372, 10939, 10940, },
@@ -546,7 +547,7 @@ addon.db.Enchanting = {
 	},
 	[439134] = {
 		spellID = 439134,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 175,
 		itemID = 217287,
 		reagents = {11291, 11135, 11137, },
@@ -617,7 +618,7 @@ addon.db.Enchanting = {
 	},
 	[435481] = {
 		spellID = 435481,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 0,
 		reagents = {11174, 5637, 11177, },
@@ -629,7 +630,7 @@ addon.db.Enchanting = {
 	},
 	[435903] = {
 		spellID = 435903,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 0,
 		reagents = {11177, 11176, },
@@ -766,7 +767,7 @@ addon.db.Enchanting = {
 	},
 	[439156] = {
 		spellID = 439156,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 217308,
 		reagents = {11137, },

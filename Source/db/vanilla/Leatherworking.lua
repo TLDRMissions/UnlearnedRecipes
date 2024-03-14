@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Leatherworking = {
 	[2881] = {
@@ -619,7 +620,7 @@ addon.db.Leatherworking = {
 	},
 	[429354] = {
 		spellID = 429354,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 160,
 		itemID = 211423,
 		reagents = {211422, 4253, },
@@ -628,7 +629,7 @@ addon.db.Leatherworking = {
 	},
 	[429869] = {
 		spellID = 429869,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 160,
 		itemID = 211502,
 		reagents = {211422, 4253, },
@@ -653,7 +654,7 @@ addon.db.Leatherworking = {
 	},
 	[439114] = {
 		spellID = 439114,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 160,
 		itemID = 217267,
 		reagents = {4234, 4305, 2321, },
@@ -807,7 +808,7 @@ addon.db.Leatherworking = {
 	},
 	[439112] = {
 		spellID = 439112,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 190,
 		itemID = 217265,
 		reagents = {4236, 4234, 2321, 7071, },
@@ -884,7 +885,7 @@ addon.db.Leatherworking = {
 	},
 	[435819] = {
 		spellID = 435819,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 213369,
 		reagents = {8172, 213370, },
@@ -1025,7 +1026,7 @@ addon.db.Leatherworking = {
 	},
 	[439116] = {
 		spellID = 439116,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 210,
 		itemID = 217268,
 		reagents = {4304, 8167, 8343, },
@@ -1034,7 +1035,7 @@ addon.db.Leatherworking = {
 	},
 	[439110] = {
 		spellID = 439110,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 215,
 		itemID = 217263,
 		reagents = {4234, 4236, 4291, },
@@ -1097,7 +1098,7 @@ addon.db.Leatherworking = {
 	},
 	[435904] = {
 		spellID = 435904,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215166,
 		reagents = {213379, 8172, 4291, 213369, },
@@ -1109,7 +1110,7 @@ addon.db.Leatherworking = {
 	},
 	[435949] = {
 		spellID = 435949,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215114,
 		reagents = {213376, 5785, 213369, 213372, },
@@ -1121,7 +1122,7 @@ addon.db.Leatherworking = {
 	},
 	[435951] = {
 		spellID = 435951,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215381,
 		reagents = {213372, 8172, 213369, 213379, },
@@ -1133,7 +1134,7 @@ addon.db.Leatherworking = {
 	},
 	[435953] = {
 		spellID = 435953,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215382,
 		reagents = {213376, 8172, 213369, 213372, },
@@ -1145,7 +1146,7 @@ addon.db.Leatherworking = {
 	},
 	[439118] = {
 		spellID = 439118,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 217270,
 		reagents = {4304, 8167, 8343, },
@@ -1244,7 +1245,7 @@ addon.db.Leatherworking = {
 	},
 	[439108] = {
 		spellID = 439108,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 235,
 		itemID = 217261,
 		reagents = {4304, 8151, 8343, },
@@ -1282,7 +1283,7 @@ addon.db.Leatherworking = {
 	},
 	[439105] = {
 		spellID = 439105,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 240,
 		itemID = 217259,
 		reagents = {4304, 8151, 8343, },

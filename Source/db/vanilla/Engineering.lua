@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Engineering = {
 	[3918] = {
@@ -323,7 +324,7 @@ addon.db.Engineering = {
 	},
 	[424641] = {
 		spellID = 424641,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 135,
 		itemID = 210147,
 		reagents = {4382, 4375, 4234, },
@@ -656,7 +657,7 @@ addon.db.Engineering = {
 	},
 	[435956] = {
 		spellID = 435956,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 213383,
 		reagents = {6037, 213381, },
@@ -798,7 +799,7 @@ addon.db.Engineering = {
 	},
 	[435960] = {
 		spellID = 435960,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215115,
 		reagents = {213383, 213379, 213369, 3577, },
@@ -810,7 +811,7 @@ addon.db.Engineering = {
 	},
 	[435964] = {
 		spellID = 435964,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215127,
 		reagents = {10505, 215430, 3860, },
@@ -822,7 +823,7 @@ addon.db.Engineering = {
 	},
 	[435966] = {
 		spellID = 435966,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215168,
 		reagents = {10505, 215430, 3860, },
@@ -834,7 +835,7 @@ addon.db.Engineering = {
 	},
 	[435958] = {
 		spellID = 435958,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 213390,
 		reagents = {213376, 213383, 213369, 10561, 4389, 3860, },
@@ -1388,7 +1389,7 @@ addon.db.Engineering = {
 	},
 	[431362] = {
 		spellID = 431362,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 300,
 		itemID = 211427,
 		reagents = {1210, 9262, 16583, },

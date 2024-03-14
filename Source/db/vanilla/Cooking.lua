@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Cooking = {
 	[2538] = {

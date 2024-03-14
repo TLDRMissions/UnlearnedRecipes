@@ -17,6 +17,9 @@ addon.Enums.Reacts = {}
 addon.Enums.Reacts.Horde = 1
 addon.Enums.Reacts.Ally = 2
 
+addon.Enums.Restrictions = {}
+addon.Enums.Restrictions.SoD = 1
+
 addon.Strings.Professions = {}
 addon.Strings.Professions.Alchemy = GetSpellInfo(2259)
 addon.Strings.Professions.Blacksmithing = GetSpellInfo(2018)

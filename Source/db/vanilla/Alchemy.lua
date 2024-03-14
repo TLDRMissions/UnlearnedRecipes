@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Alchemy = {
 	[2329] = {
@@ -118,7 +119,7 @@ addon.db.Alchemy = {
 	},
 	[426607] = {
 		spellID = 426607,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 90,
 		itemID = 210708,
 		reagents = {3820, 3372, 3369, 11083, },
@@ -419,7 +420,7 @@ addon.db.Alchemy = {
 	},
 	[435969] = {
 		spellID = 435969,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 213372,
 		reagents = {3372, 213371, },
@@ -466,7 +467,7 @@ addon.db.Alchemy = {
 	},
 	[439960] = {
 		spellID = 439960,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 210,
 		itemID = 217398,
 		reagents = {3356, 3821, 8925, },
@@ -533,7 +534,7 @@ addon.db.Alchemy = {
 	},
 	[435971] = {
 		spellID = 435971,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215162,
 		reagents = {213371, 2456, 215430, 8925, },

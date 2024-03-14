@@ -38,3 +38,15 @@ for vendorID, vendorData in pairs(addon.db.Vendors) do
         addon.db.Vendors[vendorID] = nil
     end
 end
+
+-- Discard season restricted recipes on non-seasonal servers
+local isSoD = C_Seasons.GetActiveSeason() == 2
+if not isSoD then
+    for _, prof in pairs(addon.db) do
+        for id, data in pairs(prof) do
+            if data.requiresSeason == addon.Enums.Restrictions.SoD then
+                prof[id] = nil
+            end
+        end
+    end
+end

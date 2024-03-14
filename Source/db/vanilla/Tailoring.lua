@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
+local restrictions = addon.Enums.Restrictions
 
 addon.db.Tailoring = {
 	[2963] = {
@@ -458,7 +459,7 @@ addon.db.Tailoring = {
 	},
 	[428424] = {
 		spellID = 428424,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 125,
 		itemID = 210781,
 		reagents = {2997, 814, 2321, },
@@ -580,7 +581,7 @@ addon.db.Tailoring = {
 	},
 	[429351] = {
 		spellID = 429351,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 150,
 		itemID = 210795,
 		reagents = {211422, 4320, },
@@ -673,7 +674,7 @@ addon.db.Tailoring = {
 	},
 	[435841] = {
 		spellID = 435841,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 170,
 		itemID = 215366,
 		reagents = {4305, 1210, 2321, 4340, },
@@ -685,7 +686,7 @@ addon.db.Tailoring = {
 	},
 	[435848] = {
 		spellID = 435848,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 170,
 		itemID = 215365,
 		reagents = {4305, 4340, 2321, 6260, },
@@ -723,7 +724,7 @@ addon.db.Tailoring = {
 	},
 	[439100] = {
 		spellID = 439100,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 170,
 		itemID = 217256,
 		reagents = {4305, 7067, 2321, },
@@ -795,7 +796,7 @@ addon.db.Tailoring = {
 	},
 	[439098] = {
 		spellID = 439098,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 175,
 		itemID = 217255,
 		reagents = {4305, 7071, 2604, 4291, },
@@ -833,7 +834,7 @@ addon.db.Tailoring = {
 	},
 	[439102] = {
 		spellID = 439102,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 185,
 		itemID = 217257,
 		reagents = {4305, 2321, 4337, },
@@ -881,7 +882,7 @@ addon.db.Tailoring = {
 	},
 	[439094] = {
 		spellID = 439094,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 185,
 		itemID = 217252,
 		reagents = {4305, 3827, 4291, },
@@ -928,7 +929,7 @@ addon.db.Tailoring = {
 	},
 	[439097] = {
 		spellID = 439097,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 195,
 		itemID = 217253,
 		reagents = {4305, 4291, 4337, },
@@ -957,7 +958,7 @@ addon.db.Tailoring = {
 	},
 	[435827] = {
 		spellID = 435827,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 200,
 		itemID = 213379,
 		reagents = {4339, 213378, 8343, },
@@ -1028,7 +1029,7 @@ addon.db.Tailoring = {
 	},
 	[439086] = {
 		spellID = 439086,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 205,
 		itemID = 217246,
 		reagents = {4339, 4291, },
@@ -1037,7 +1038,7 @@ addon.db.Tailoring = {
 	},
 	[439088] = {
 		spellID = 439088,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 205,
 		itemID = 217247,
 		reagents = {4339, 4291, },
@@ -1046,7 +1047,7 @@ addon.db.Tailoring = {
 	},
 	[439093] = {
 		spellID = 439093,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 210,
 		itemID = 217250,
 		reagents = {4305, 6371, 2604, 4291, },
@@ -1081,7 +1082,7 @@ addon.db.Tailoring = {
 	},
 	[439091] = {
 		spellID = 439091,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 215,
 		itemID = 217248,
 		reagents = {4305, 7067, 4234, 7071, 4291, },
@@ -1146,7 +1147,7 @@ addon.db.Tailoring = {
 	},
 	[439085] = {
 		spellID = 439085,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 220,
 		itemID = 217245,
 		reagents = {4305, 7068, 3827, 2604, 4291, },
@@ -1169,7 +1170,7 @@ addon.db.Tailoring = {
 	},
 	[435610] = {
 		spellID = 435610,
-		requiresSeason = SoD,
+		requiresSeason = restrictions.SoD,
 		minSkill = 225,
 		itemID = 215111,
 		reagents = {213379, 213369, 213372, 11137, 4339, },
