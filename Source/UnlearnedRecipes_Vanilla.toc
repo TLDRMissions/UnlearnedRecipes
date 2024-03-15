@@ -18,7 +18,7 @@ db\vanilla\Engineering.lua
 db\vanilla\GnomishEngineering.lua
 db\vanilla\GoblinEngineering.lua
 db\vanilla\Leatherworking.lua
-db\vanilla\Smelting.lua
+db\vanilla\Mining.lua
 db\vanilla\Tailoring.lua
 
 db\vanilla\vendors.lua
