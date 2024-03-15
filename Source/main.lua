@@ -596,7 +596,9 @@ for i = 1, 8 do
             local numTradeSkills = GetNumTradeSkills();
             local db = dbCache[GetTradeSkillLine()]
             local data = db[TradeSkillFrame.selectedSkill - numTradeSkills]
-            GameTooltip:SetItemByID(data.reagents[self:GetID()])
+            if data.reagents then
+                GameTooltip:SetItemByID(data.reagents[self:GetID()])
+            end
         end
         CursorUpdate(self);
     end)
