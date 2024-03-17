@@ -24,4 +24,6 @@ db\vanilla\Tailoring.lua
 db\vanilla\vendors.lua
 db\vanilla\Corrections.lua
 
-main.lua
+util.lua
+CraftUI.lua
+TradeSkillFrame.lua

@@ -1,7 +1,11 @@
+-- Modifies _classic_era_\BlizzardInterfaceCode\Interface_Vanilla\AddOns\Blizzard_TradeSkillUI\Blizzard_TradeSkillUI.lua
+
 local addonName, addon = ...
 local sources = addon.Enums.Sources
 
 local dbCache = {}
+
+EventUtil.ContinueOnAddOnLoaded("Blizzard_TradeSkillUI", function()
 
 function TradeSkillFrame_Update()
 	local numTradeSkills = GetNumTradeSkills();
@@ -12,17 +16,19 @@ function TradeSkillFrame_Update()
         for key, spellName in pairs(addon.Strings.Professions) do
             if spellName == GetTradeSkillLine() then
                 db = addon.db[key]
-                for i = 1, numTradeSkills do
-                    local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(i)
-                    if not skillName or skillName == "" then
-                        skipCache = true
-                    end
-                    for tableIndex, data in pairs(db) do
-                        if GetSpellInfo(data.spellID) == nil then
+                if db then
+                    for i = 1, numTradeSkills do
+                        local skillName = GetTradeSkillInfo(i)
+                        if not skillName or skillName == "" then
                             skipCache = true
                         end
-                        if GetSpellInfo(data.spellID) == skillName then
-                            db[tableIndex] = nil
+                        for tableIndex, data in pairs(db) do
+                            if GetSpellInfo(data.spellID) == nil then
+                                skipCache = true
+                            end
+                            if GetSpellInfo(data.spellID) == skillName then
+                                db[tableIndex] = nil
+                            end
                         end
                     end
                 end
@@ -154,7 +160,6 @@ function TradeSkillFrame_Update()
         elseif db and (skillIndex <= (numTradeSkills + #db)) then
             local data = db[skillIndex - numTradeSkills]
 		    local skillName = GetSpellInfo(data.spellID)
-            local skillType, numAvailable, isExpanded = "Unlearned", 0, nil
 		    local skillButton = getglobal("TradeSkillSkill"..i);
 			
             if data.header then
@@ -230,7 +235,6 @@ function TradeSkillFrame_SetSelection(id)
         if data.header then return end
         
         local skillName = GetSpellInfo(data.spellID)
-        local skillSource = data.source
         
         TradeSkillSkillName:SetText(skillName)
         TradeSkillSkillCooldown:SetText("")
@@ -289,57 +293,16 @@ function TradeSkillFrame_SetSelection(id)
             end)
     	end
         
-        if skillSource == sources.Trainer then
-            TradeSkillRequirementText:SetText(addon.Strings.Sources.Trainer)
-        elseif skillSource == sources.Item then
-            TradeSkillRequirementText:SetText(addon.Strings.Sources.Recipe)
-            
-            local item = Item:CreateFromItemID(data.sourceItemID)
-            item:ContinueOnItemLoad(function()
-            	TradeSkillSkillRecipeIcon.itemLink = item:GetItemLink()
-                TradeSkillSkillRecipeIcon:SetNormalTexture(item:GetItemIcon())
-                TradeSkillSkillRecipeIcon:Show()
-            end)
-            
+        local requirement, source, vendors = addon.GetRecipeRequirementText(data, function(item)
+            TradeSkillSkillRecipeIcon.itemLink = item:GetItemLink()
+            TradeSkillSkillRecipeIcon:SetNormalTexture(item:GetItemIcon())
+            TradeSkillSkillRecipeIcon:Show()
+        end)
+        TradeSkillRequirementText:SetText(requirement)
+        if source then
             TradeSkillSourceText:Show()
-            TradeSkillSourceText.vendors = nil
-            
-            if data.itemSource == sources.Vendors then
-                local itemVendors = CopyTable(data.itemVendors)
-                local numVendors = 0
-                for key, vendorID in pairs(itemVendors) do
-                    local vendorData = addon.db.Vendors[vendorID]
-                    if not vendorData then
-                        itemVendors[key] = nil
-                    else
-                        numVendors = numVendors + 1
-                    end
-                end
-                if numVendors > 0 then
-                    local text = addon.Strings.Sources.Vendors..": "
-                    TradeSkillSourceText.vendors = {}
-                    local first = false
-                    for key, vendorID in pairs(itemVendors) do
-                        local vendorData = addon.db.Vendors[vendorID]
-                        table.insert(TradeSkillSourceText.vendors, vendorData)
-                        if not first then
-                            text = text..vendorData.name
-                            first = true
-                        else
-                            text = text..", "..vendorData.name
-                        end
-                        TradeSkillSourceText:SetText(text)
-                    end
-                else
-                    TradeSkillSourceText:SetText(FACTION .. " " .. LOCKED)
-                end
-            elseif data.itemSource == sources.WorldDrop then
-                TradeSkillSourceText:SetText(addon.Strings.Sources.WorldDrop)
-            elseif type(data.itemSource) == "string" then
-                TradeSkillSourceText:SetText(data.itemSource)
-            elseif data.itemSource == sources.Quest then
-                TradeSkillSourceText:SetText(addon.Strings.Sources.Quest)
-            end
+            TradeSkillSourceText.vendors = vendors
+            TradeSkillSourceText:SetText(source)
         end
         
         TradeSkillFrame.unlearnedSelected = true
@@ -623,3 +586,5 @@ end)
 hooksecurefunc("TradeSkillFrame_Hide", function()
     wipe(dbCache)
 end)
+
+end) -- end ContinueOnAddOnLoaded
