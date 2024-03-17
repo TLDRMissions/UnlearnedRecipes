@@ -50,3 +50,7 @@ if not isSoD then
         end
     end
 end
+
+-- Pearl-handled dagger, requires 115, wowhead lists 110 for some reason?
+-- https://www.wowhead.com/classic/spell=6517/pearl-handled-dagger#comments
+addon.db.Blacksmithing[6517].minSkill = 115
