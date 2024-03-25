@@ -7,10 +7,93 @@ local dbCache = {}
 
 EventUtil.ContinueOnAddOnLoaded("Blizzard_TradeSkillUI", function()
 
+-- Current Trade Skill name. Used for detecting if the player swaps which tradeskill the window should show.
+local currentTradeSkillName = ""
+
+-- Override GetTradeSkillSelectionIndex and SetTradeSkillSelectionIndex with a local copy that supports our expanded indexes
+local selectionIndex
+
+-- Store the currently displayed recipes so we can detect if they change
+local currentRecipes = {}
+
+local function detectChanges()
+    for i = 1, GetNumTradeSkills() do
+        local skillName = GetTradeSkillInfo(i)
+        if not currentRecipes[i] then return true end
+        if currentRecipes[i] ~= skillName then return true end
+    end
+    return false
+end
+
+function TradeSkillFrame_OnShow(self)
+	CloseDropDownMenus();
+	TradeSkillSubClassDropDown:Hide();
+	TradeSkillSubClassDropDown:Show();
+	TradeSkillInvSlotDropDown:Hide();
+	TradeSkillInvSlotDropDown:Show();
+	ShowUIPanel(TradeSkillFrame);
+	TradeSkillCreateButton:Disable();
+	TradeSkillCreateAllButton:Disable();
+	if ( GetTradeSkillSelectionIndex() == 0 ) then
+		TradeSkillFrame_SetSelection(GetFirstTradeSkill());
+	elseif selectionIndex then
+        TradeSkillFrame_SetSelection(selectionIndex)
+    else
+		TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
+	end
+	FauxScrollFrame_SetOffset(TradeSkillListScrollFrame, 0);
+	TradeSkillListScrollFrameScrollBar:SetMinMaxValues(0, 0);
+	TradeSkillListScrollFrameScrollBar:SetValue(0);
+	SetPortraitTexture(TradeSkillFramePortrait, "player");
+	TradeSkillFrame_Update();
+end
+
+TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
+	if ( not TradeSkillFrame:IsVisible() ) then
+		return;
+	end
+	if ( event == "TRADE_SKILL_UPDATE" ) then
+        if (currentTradeSkillName ~= GetTradeSkillLine()) then
+			TradeSkillFrame_OnShow(TradeSkillFrame);
+		end
+		TradeSkillCreateButton:Disable();
+		TradeSkillCreateAllButton:Disable();
+		
+        if detectChanges() then
+            wipe(dbCache)
+            if ( GetTradeSkillSelectionIndex() > 1 and GetTradeSkillSelectionIndex() <= GetNumTradeSkills() ) then
+                TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
+    		else
+                if ( GetNumTradeSkills() > 0 ) then
+    				TradeSkillFrame_SetSelection(GetFirstTradeSkill());
+    				FauxScrollFrame_SetOffset(TradeSkillListScrollFrame, 0);
+    			end
+    			TradeSkillListScrollFrameScrollBar:SetValue(0);
+    		end
+        end
+		TradeSkillFrame_Update();
+	elseif ( event == "UNIT_PORTRAIT_UPDATE" ) then
+		if ( arg1 == "player" ) then
+			SetPortraitTexture(TradeSkillFramePortrait, "player");
+		end
+	elseif ( event == "UPDATE_TRADESKILL_RECAST" ) then
+		TradeSkillInputBox:SetNumber(GetTradeskillRepeatCount());
+	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
+		TradeSkillFrame_Hide();
+	end
+end)
+
 function TradeSkillFrame_Update()
+    currentTradeSkillName = GetTradeSkillLine()
 	local numTradeSkills = GetNumTradeSkills();
     local professionName, currentSkill = GetTradeSkillLine()
 	local db = dbCache[professionName]
+    
+    for i = 1, numTradeSkills do
+    	wipe(currentRecipes)
+        local skillName = GetTradeSkillInfo(i)
+        currentRecipes[i] = skillName
+    end
     
     if not db then
         local skipCache
@@ -85,7 +168,7 @@ function TradeSkillFrame_Update()
 				end
 
 				-- Place the highlight and lock the highlight state
-				if ( GetTradeSkillSelectionIndex() == skillIndex ) then
+				if ( selectionIndex == skillIndex ) then
 					TradeSkillHighlightFrame:SetPoint("TOPLEFT", "TradeSkillSkill"..i, "TOPLEFT", 0, 0);
 					TradeSkillHighlightFrame:Show();
 					getglobal("TradeSkillSkill"..i):LockHighlight();
@@ -117,7 +200,7 @@ function TradeSkillFrame_Update()
                 skillButton:SetText(" "..skillName);
         		
         		-- Place the highlight and lock the highlight state
-        		if ( GetTradeSkillSelectionIndex() == skillIndex ) then
+        		if ( selectionIndex == skillIndex ) then
         			TradeSkillHighlightFrame:SetPoint("TOPLEFT", "TradeSkillSkill"..i, "TOPLEFT", 0, 0);
         			TradeSkillHighlightFrame:Show();
         			getglobal("TradeSkillSkill"..i):LockHighlight();
@@ -141,7 +224,7 @@ function TradeSkillFrame_Update()
 				notExpanded = notExpanded + 1;
 			end
 		end
-		if ( GetTradeSkillSelectionIndex() == i ) then
+		if ( selectionIndex == i ) then
 			-- Set the max makeable items for the create all button
 			TradeSkillFrame.numAvailable = numAvailable;
 		end
@@ -157,8 +240,7 @@ function TradeSkillFrame_Update()
 end
 
 function TradeSkillFrame_SetSelection(id)
-    TradeSkillFrame.selectedSkill = id
-    TradeSkillFrame.unlearnedSelected = nil
+    selectionIndex = id
     local numTradeSkills = GetNumTradeSkills();
     
     TradeSkillSkillRecipeIcon:Hide()
@@ -242,8 +324,6 @@ function TradeSkillFrame_SetSelection(id)
             TradeSkillSourceText:SetText(source)
         end
         
-        TradeSkillFrame.unlearnedSelected = true
-        
         return
     end
     
@@ -258,7 +338,8 @@ function TradeSkillFrame_SetSelection(id)
 		end
 		return;
 	end
-	SelectTradeSkill(id);
+	TradeSkillFrame.selectedSkill = id;
+    SelectTradeSkill(id);
 	if ( GetTradeSkillSelectionIndex() > GetNumTradeSkills() ) then
 		return;
 	end
@@ -366,14 +447,13 @@ function TradeSkillFrame_SetSelection(id)
 end
 
 TradeSkillSkillIcon:SetScript("OnEnter", function()
-    local id = TradeSkillFrame.selectedSkill
-    if ( id ~= 0 ) then
+    if ( selectionIndex ~= 0 ) then
         local numTradeSkills = GetNumTradeSkills();
-        if id > numTradeSkills then
+        if selectionIndex > numTradeSkills then
             local db = dbCache[GetTradeSkillLine()]
             if not db then return end
             
-            local data = db[id - numTradeSkills]
+            local data = db[selectionIndex - numTradeSkills]
             if not data.itemID then return end
             
             GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
@@ -383,20 +463,19 @@ TradeSkillSkillIcon:SetScript("OnEnter", function()
             return
         end
 		GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
-		GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill);
+		GameTooltip:SetTradeSkillItem(selectionIndex);
 		CursorUpdate(TradeSkillSkillIcon);
     end
 end)
 
 TradeSkillSkillIcon.UpdateTooltip = function ()
-    local id = TradeSkillFrame.selectedSkill
-    if ( id ~= 0 ) then
+    if ( selectionIndex ~= 0 ) then
         local numTradeSkills = GetNumTradeSkills();
-        if id > numTradeSkills then
+        if selectionIndex > numTradeSkills then
             local db = dbCache[GetTradeSkillLine()]
             if not db then return end
             
-            local data = db[id - numTradeSkills]
+            local data = db[selectionIndex - numTradeSkills]
             if not data.itemID then return end
             
             GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
@@ -406,47 +485,10 @@ TradeSkillSkillIcon.UpdateTooltip = function ()
             return
         end
 		GameTooltip:SetOwner(TradeSkillSkillIcon, "ANCHOR_RIGHT");
-		GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill);
+		GameTooltip:SetTradeSkillItem(selectionIndex);
 		CursorUpdate(TradeSkillSkillIcon);
     end
 end
-
-TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
-	if ( not TradeSkillFrame:IsVisible() ) then
-		return;
-	end
-	if ( event == "TRADE_SKILL_UPDATE" ) then
-        if (currentTradeSkillName ~= GetTradeSkillLine()) then
-			TradeSkillFrame_OnShow(TradeSkillFrame);
-			currentTradeSkillName = GetTradeSkillLine();
-            TradeSkillFrame.unlearnedSelected = nil
-		end
-		TradeSkillCreateButton:Disable();
-		TradeSkillCreateAllButton:Disable();
-		
-        if not TradeSkillFrame.unlearnedSelected then
-            wipe(dbCache)
-            if ( GetTradeSkillSelectionIndex() > 1 and GetTradeSkillSelectionIndex() <= GetNumTradeSkills() ) then
-    			TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
-    		else
-    			if ( GetNumTradeSkills() > 0 ) then
-    				TradeSkillFrame_SetSelection(GetFirstTradeSkill());
-    				FauxScrollFrame_SetOffset(TradeSkillListScrollFrame, 0);
-    			end
-    			TradeSkillListScrollFrameScrollBar:SetValue(0);
-    		end
-        end
-		TradeSkillFrame_Update();
-	elseif ( event == "UNIT_PORTRAIT_UPDATE" ) then
-		if ( arg1 == "player" ) then
-			SetPortraitTexture(TradeSkillFramePortrait, "player");
-		end
-	elseif ( event == "UPDATE_TRADESKILL_RECAST" ) then
-		TradeSkillInputBox:SetNumber(GetTradeskillRepeatCount());
-	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
-		TradeSkillFrame_Hide();
-	end
-end)
 
 CreateFrame("Button", "TradeSkillSkillRecipeIcon", TradeSkillDetailScrollChildFrame)
 TradeSkillSkillRecipeIcon:SetSize(37, 37)
@@ -490,12 +532,12 @@ for i = 1, 8 do
     local button = _G["TradeSkillReagent"..i]
     button:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-        if not TradeSkillFrame.unlearnedSelected then 
-            GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill, self:GetID());
+        if selectionIndex < GetNumTradeSkills() then 
+            GameTooltip:SetTradeSkillItem(selectionIndex, self:GetID());
         else
             local numTradeSkills = GetNumTradeSkills();
             local db = dbCache[GetTradeSkillLine()]
-            local data = db[TradeSkillFrame.selectedSkill - numTradeSkills]
+            local data = db[selectionIndex - numTradeSkills]
             if data.reagents then
                 GameTooltip:SetItemByID(data.reagents[self:GetID()])
             end
@@ -504,12 +546,12 @@ for i = 1, 8 do
     end)
     button.UpdateTooltip = function (self)
         GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-        if not TradeSkillFrame.unlearnedSelected then 
-            GameTooltip:SetTradeSkillItem(TradeSkillFrame.selectedSkill, self:GetID());
+        if selectionIndex < GetNumTradeSkills() then 
+            GameTooltip:SetTradeSkillItem(selectionIndex, self:GetID());
         else
             local numTradeSkills = GetNumTradeSkills();
             local db = dbCache[GetTradeSkillLine()]
-            local data = db[TradeSkillFrame.selectedSkill - numTradeSkills]
+            local data = db[selectionIndex - numTradeSkills]
             GameTooltip:SetItemByID(data.reagents[self:GetID()])
         end
         CursorUpdate(self);
