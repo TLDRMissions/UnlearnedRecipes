@@ -1,6 +1,12 @@
 local addonName, addon = ...
 local sources = addon.Enums.Sources
 
+local UNLEARNED_TRAINER = TRADE_SKILLS_UNLEARNED_TAB .. " - " .. TUTORIAL_TITLE14
+local UNLEARNED_RECIPE_VENDOR = TRADE_SKILLS_UNLEARNED_TAB .. " - " .. AUCTION_CATEGORY_RECIPES .. " - " .. TUTORIAL_TITLE20 
+local UNLEARNED_RECIPE_WORLDDROP = TRADE_SKILLS_UNLEARNED_TAB .. " - " .. AUCTION_CATEGORY_RECIPES .. " - " .. TRANSMOG_SOURCE_4
+local UNLEARNED_RECIPE_OTHER = TRADE_SKILLS_UNLEARNED_TAB .. " - " .. AUCTION_CATEGORY_RECIPES .. " - " .. BINDING_HEADER_OTHER
+local UNLEARNED_UNKNOWN = TRADE_SKILLS_UNLEARNED_TAB .. " - " .. COMBATLOG_FILTER_STRING_UNKNOWN_UNITS
+
 function addon.GetRecipeRequirementText(data, itemCallback)
     local requirement, source, vendors
     if data.source == sources.Trainer then
@@ -51,3 +57,84 @@ function addon.GetRecipeRequirementText(data, itemCallback)
     end
     return requirement, source, vendors
 end
+
+function addon.GetRecipeDB(professionName, getCraftInfoFunc, currentSkill, includeHeaders, numCrafts)
+    local skipCache = false
+    for key, spellName in pairs(addon.Strings.Professions) do
+        if spellName == professionName then
+            db = addon.db[key]
+            if db then
+                for i = 1, numCrafts do
+                    local craftName = getCraftInfoFunc(i)
+                    if not craftName or craftName == "" then
+                        skipCache = true
+                    end
+                    for tableIndex, data in pairs(db) do
+                        if GetSpellInfo(data.spellID) == nil then
+                            skipCache = true
+                        end
+                        if GetSpellInfo(data.spellID) == craftName then
+                            db[tableIndex] = nil
+                        end
+                    end
+                end
+            end
+            break
+        end
+    end
+    
+    if db then
+        db = CopyTable(db)
+        
+        for tableIndex, data in pairs(db) do
+            if data.minSkill > currentSkill then
+                db[tableIndex] = nil
+            end
+        end
+        
+        local trainerDB, recipeVendorDB, recipeWorldDropDB, recipeOtherDB, unknownDB = {}, {}, {}, {}, {}
+        for tableIndex, data in pairs(db) do
+            if data.source == sources.Trainer then
+                table.insert(trainerDB, data)
+            elseif data.source == sources.Item then
+                if data.itemSource == sources.WorldDrop then
+                    table.insert(recipeWorldDropDB, data)
+                elseif data.itemSource == sources.Vendors then
+                    table.insert(recipeVendorDB, data)
+                else
+                    table.insert(recipeOtherDB, data)
+                end
+            elseif data.source == sources.Unknown then
+                table.insert(unknownDB, data)
+            end
+        end
+
+        if includeHeaders then
+            if #trainerDB > 0 then
+                table.insert(trainerDB, 1, {header = UNLEARNED_TRAINER})
+            end
+            if #recipeVendorDB > 0 then
+               table.insert(recipeVendorDB, 1, {header = UNLEARNED_RECIPE_VENDOR})
+            end
+            if #recipeWorldDropDB > 0 then
+               table.insert(recipeWorldDropDB, 1, {header = UNLEARNED_RECIPE_WORLDDROP})
+            end
+            if #recipeOtherDB > 0 then
+               table.insert(recipeOtherDB, 1, {header = UNLEARNED_RECIPE_OTHER})
+            end
+            if #unknownDB > 0 then
+                table.insert(unknownDB, 1, {header = UNLEARNED_UNKNOWN})
+            end
+        end
+        
+        db = {}
+        for _, d in ipairs({trainerDB, recipeVendorDB, recipeWorldDropDB, recipeOtherDB, unknownDB}) do
+            for _, data in ipairs(d) do
+                table.insert(db, data)
+            end
+        end
+    end
+    
+    return db, skipCache
+end
+

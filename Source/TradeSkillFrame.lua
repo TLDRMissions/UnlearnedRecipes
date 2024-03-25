@@ -9,85 +9,22 @@ EventUtil.ContinueOnAddOnLoaded("Blizzard_TradeSkillUI", function()
 
 function TradeSkillFrame_Update()
 	local numTradeSkills = GetNumTradeSkills();
-	local db = dbCache[GetTradeSkillLine()]
+    local professionName, currentSkill = GetTradeSkillLine()
+	local db = dbCache[professionName]
     
     if not db then
-        local skipCache = false
-        for key, spellName in pairs(addon.Strings.Professions) do
-            if spellName == GetTradeSkillLine() then
-                db = addon.db[key]
-                if db then
-                    for i = 1, numTradeSkills do
-                        local skillName = GetTradeSkillInfo(i)
-                        if not skillName or skillName == "" then
-                            skipCache = true
-                        end
-                        for tableIndex, data in pairs(db) do
-                            if GetSpellInfo(data.spellID) == nil then
-                                skipCache = true
-                            end
-                            if GetSpellInfo(data.spellID) == skillName then
-                                db[tableIndex] = nil
-                            end
-                        end
-                    end
-                end
-                break
-            end
-        end
-        
-        if db then
-            db = CopyTable(db)
-            
-            local _, currentSkill = GetTradeSkillLine()
-            for tableIndex, data in pairs(db) do
-                if data.minSkill > currentSkill then
-                    db[tableIndex] = nil
-                end
-            end
-            
-            local trainerDB, itemDB, unknownDB = {}, {}, {}
-            for tableIndex, data in pairs(db) do
-                if data.source == sources.Trainer then
-                    table.insert(trainerDB, data)
-                elseif data.source == sources.Item then
-                    table.insert(itemDB, data)
-                elseif data.source == sources.Unknown then
-                    table.insert(unknownDB, data)
-                end
-            end
-            
-            if #trainerDB > 0 then
-                table.insert(trainerDB, 1, {header = "Unlearned - Trainer"})
-            end
-            if #itemDB > 0 then
-               table.insert(itemDB, 1, {header = "Unlearned - Recipe"})
-            end
-            if #unknownDB > 0 then
-                table.insert(unknownDB, 1, {header = "Unlearned - Unknown"})
-            end
-            
-            db = {}
-            for _, data in ipairs(trainerDB) do
-                table.insert(db, data)
-            end
-            for _, data in ipairs(itemDB) do
-                table.insert(db, data)
-            end
-            for _, data in ipairs(unknownDB) do
-                table.insert(db, data)
-            end
-            
-            if not skipCache then
-                dbCache[GetTradeSkillLine()] = db
-            end
+        local skipCache
+        db, skipCache = addon.GetRecipeDB(professionName, GetTradeSkillInfo, currentSkill, true, numTradeSkills)
+                
+        if not skipCache then
+            dbCache[professionName] = db
         end
     end
     
     local skillOffset = FauxScrollFrame_GetOffset(TradeSkillListScrollFrame);
 	-- If no tradeskills
 	if ( numTradeSkills == 0 ) then
-		TradeSkillFrameTitleText:SetText(format(TRADE_SKILL_TITLE, GetTradeSkillLine()));
+		TradeSkillFrameTitleText:SetText(format(TRADE_SKILL_TITLE, professionName));
 		TradeSkillSkillName:Hide();
 --		TradeSkillSkillLineName:Hide();
 		TradeSkillSkillIcon:Hide();

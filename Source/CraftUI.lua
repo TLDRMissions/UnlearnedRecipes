@@ -14,65 +14,12 @@ function CraftFrame_Update()
 	local db = dbCache[craftName]
     
     if not db then
-        local skipCache = false
-        for key, spellName in pairs(addon.Strings.Professions) do
-            if spellName == craftName then
-                db = addon.db[key]
-                if db then
-                    for i = 1, numCrafts do
-                        local craftName = GetCraftInfo(i)
-                        if not craftName or craftName == "" then
-                            skipCache = true
-                        end
-                        for tableIndex, data in pairs(db) do
-                            if GetSpellInfo(data.spellID) == nil then
-                                skipCache = true
-                            end
-                            if GetSpellInfo(data.spellID) == craftName then
-                                db[tableIndex] = nil
-                            end
-                        end
-                    end
-                end
-                break
-            end
-        end
-        
-        if db then
-            db = CopyTable(db)
-            
-            local _, currentSkill = GetCraftDisplaySkillLine()
-            for tableIndex, data in pairs(db) do
-                if data.minSkill > currentSkill then
-                    db[tableIndex] = nil
-                end
-            end
-            
-            local trainerDB, itemDB, unknownDB = {}, {}, {}
-            for tableIndex, data in pairs(db) do
-                if data.source == sources.Trainer then
-                    table.insert(trainerDB, data)
-                elseif data.source == sources.Item then
-                    table.insert(itemDB, data)
-                elseif data.source == sources.Unknown then
-                    table.insert(unknownDB, data)
-                end
-            end
-            
-            db = {}
-            for _, data in ipairs(trainerDB) do
-                table.insert(db, data)
-            end
-            for _, data in ipairs(itemDB) do
-                table.insert(db, data)
-            end
-            for _, data in ipairs(unknownDB) do
-                table.insert(db, data)
-            end
-            
-            if not skipCache then
-                dbCache[craftName] = db
-            end
+        local skipCache
+        local currentSkill = select(2, GetCraftDisplaySkillLine())
+        db, skipCache = addon.GetRecipeDB(craftName, GetCraftInfo, currentSkill, false, numCrafts)
+                
+        if not skipCache then
+            dbCache[craftName] = db
         end
     end
 
