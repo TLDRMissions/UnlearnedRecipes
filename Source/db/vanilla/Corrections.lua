@@ -41,7 +41,9 @@ end
 
 -- Discard season restricted recipes on non-seasonal servers
 local isSoD = C_Seasons.GetActiveSeason() == 2
-if not isSoD then
+if isSoD then
+    addon.db.Tailoring[8764] = nil -- Earthen Vest, has a different recipe 439100 on SoD
+else
     for _, prof in pairs(addon.db) do
         for id, data in pairs(prof) do
             if data.requiresSeason == addon.Enums.Restrictions.SoD then
@@ -49,6 +51,7 @@ if not isSoD then
             end
         end
     end
+
 end
 
 -- Pearl-handled dagger, requires 115, wowhead lists 110 for some reason?
