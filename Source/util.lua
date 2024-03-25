@@ -60,6 +60,7 @@ end
 
 function addon.GetRecipeDB(professionName, getCraftInfoFunc, currentSkill, includeHeaders, numCrafts)
     local skipCache = false
+    local db
     for key, spellName in pairs(addon.Strings.Professions) do
         if spellName == professionName then
             db = addon.db[key]
