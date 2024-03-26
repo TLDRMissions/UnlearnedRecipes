@@ -532,10 +532,10 @@ for i = 1, 8 do
     local button = _G["TradeSkillReagent"..i]
     button:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-        if selectionIndex < GetNumTradeSkills() then 
+        local numTradeSkills = GetNumTradeSkills();
+        if selectionIndex <= numTradeSkills then 
             GameTooltip:SetTradeSkillItem(selectionIndex, self:GetID());
         else
-            local numTradeSkills = GetNumTradeSkills();
             local db = dbCache[GetTradeSkillLine()]
             local data = db[selectionIndex - numTradeSkills]
             if data.reagents then
@@ -546,13 +546,15 @@ for i = 1, 8 do
     end)
     button.UpdateTooltip = function (self)
         GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT");
-        if selectionIndex < GetNumTradeSkills() then 
+        local numTradeSkills = GetNumTradeSkills();
+        if selectionIndex <= numTradeSkills then 
             GameTooltip:SetTradeSkillItem(selectionIndex, self:GetID());
         else
-            local numTradeSkills = GetNumTradeSkills();
             local db = dbCache[GetTradeSkillLine()]
             local data = db[selectionIndex - numTradeSkills]
-            GameTooltip:SetItemByID(data.reagents[self:GetID()])
+            if data.reagents then
+                GameTooltip:SetItemByID(data.reagents[self:GetID()])
+            end
         end
         CursorUpdate(self);
 	end
