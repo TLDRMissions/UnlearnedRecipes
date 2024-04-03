@@ -53,6 +53,13 @@ function addon.GetRecipeRequirementText(data, itemCallback)
             source = data.itemSource
         elseif data.itemSource == sources.Quest then
             source = addon.Strings.Sources.Quest
+        elseif data.itemSource == sources.ZoneDrop then
+            source = addon.Strings.Sources.ZoneDrop
+        else
+            source = "[NYI] " .. data.itemSource 
+        end
+        if data.itemSourceZoneID then
+            source = source .. ": " .. C_Map.GetAreaInfo(data.itemSourceZoneID)
         end
     end
     return requirement, source, vendors

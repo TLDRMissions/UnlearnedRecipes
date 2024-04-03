@@ -903,7 +903,7 @@ addon.db.Engineering = {
 		reagentQuantities = {1, 1, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 21738,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[12617] = {
 		spellID = 12617,
@@ -1201,7 +1201,7 @@ addon.db.Engineering = {
 		reagentQuantities = {4, 4, 2, 1, },
 		source = sources.Item,
 		sourceItemID = 21737,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[28327] = {
 		spellID = 28327,

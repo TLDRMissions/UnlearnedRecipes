@@ -1592,7 +1592,7 @@ addon.db.Blacksmithing = {
 		reagentQuantities = {20, 6, 2, 4, 4, },
 		source = sources.Item,
 		sourceItemID = 12824,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[16978] = {
 		spellID = 16978,

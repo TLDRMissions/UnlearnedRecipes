@@ -1437,7 +1437,7 @@ addon.db.Tailoring = {
 		reagentQuantities = {4, 2, 2, 1, },
 		source = sources.Item,
 		sourceItemID = 21722,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[26407] = {
 		spellID = 26407,
@@ -1447,7 +1447,7 @@ addon.db.Tailoring = {
 		reagentQuantities = {4, 2, 2, 1, },
 		source = sources.Item,
 		sourceItemID = 21723,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[18560] = {
 		spellID = 18560,

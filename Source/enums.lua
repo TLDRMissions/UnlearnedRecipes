@@ -38,6 +38,7 @@ addon.Enums.Sources.Recipe = 4
 addon.Enums.Sources.Vendors = 5
 addon.Enums.Sources.WorldDrop = 6
 addon.Enums.Sources.Quest = 7
+addon.Enums.Sources.ZoneDrop = 8
 
 addon.Strings.Sources = {}
 addon.Strings.Sources.Trainer = TUTORIAL_TITLE14
@@ -47,6 +48,7 @@ addon.Strings.Sources.Recipe = AUCTION_CATEGORY_RECIPES
 addon.Strings.Sources.Vendors = TUTORIAL_TITLE20
 addon.Strings.Sources.WorldDrop = TRANSMOG_SOURCE_4
 addon.Strings.Sources.Quest = LOOT_JOURNAL_LEGENDARIES_SOURCE_QUEST
+addon.Strings.Sources.ZoneDrop = ZONE
 
 
 addon.db = {}

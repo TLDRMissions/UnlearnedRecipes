@@ -1073,7 +1073,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 8403,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10531] = {
 		spellID = 10531,
@@ -1175,7 +1175,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {12, 2, 1, },
 		source = sources.Item,
 		sourceItemID = 8404,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10546] = {
 		spellID = 10546,
@@ -1185,7 +1185,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {10, 2, 1, },
 		source = sources.Item,
 		sourceItemID = 8405,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10619] = {
 		spellID = 10619,
@@ -1331,7 +1331,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {14, 4, 2, },
 		source = sources.Item,
 		sourceItemID = 8406,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10568] = {
 		spellID = 10568,
@@ -1387,7 +1387,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {16, 6, 2, },
 		source = sources.Item,
 		sourceItemID = 8407,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10574] = {
 		spellID = 10574,
@@ -1397,7 +1397,7 @@ addon.db.Leatherworking = {
 		reagentQuantities = {16, 6, 2, },
 		source = sources.Item,
 		sourceItemID = 8408,
-		itemSource = 'Quests',
+		itemSource = sources.Quest,
 	},
 	[10632] = {
 		spellID = 10632,

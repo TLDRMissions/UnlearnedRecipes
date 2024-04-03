@@ -529,7 +529,7 @@ addon.db.Cooking = {
 		reagentQuantities = {1, 1, },
 		source = sources.Item,
 		sourceItemID = 3737,
-		itemSource = sources.ZoneDrop,
+		itemSource = sources.Quest,
 		itemSourceZoneID = 267,
 	},
 	[4094] = {
