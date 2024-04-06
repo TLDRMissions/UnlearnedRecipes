@@ -6,7 +6,7 @@
 ## X-Curse-Project-ID: 985591
 ## IconTexture: Interface\Icons\inv_scroll_03
 ## LoadOnDemand: 1
-## LoadWith: Blizzard_TradeSkillUI
+## LoadWith: Blizzard_TradeSkillUI, Blizzard_CraftUI
 
 enums.lua
 
