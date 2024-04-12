@@ -89,8 +89,8 @@ function TradeSkillFrame_Update()
     local professionName, currentSkill = GetTradeSkillLine()
 	local db = dbCache[professionName]
     
+    wipe(currentRecipes)
     for i = 1, numTradeSkills do
-    	wipe(currentRecipes)
         local skillName = GetTradeSkillInfo(i)
         currentRecipes[i] = skillName
     end
