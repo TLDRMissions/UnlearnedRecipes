@@ -93,8 +93,7 @@ function TradeSkillFrame_Update()
     
     wipe(currentRecipes)
     for i = 1, numTradeSkills do
-        local skillName = GetTradeSkillInfo(i)
-        currentRecipes[i] = skillName
+        currentRecipes[i] = {GetTradeSkillInfo(i)}
     end
     
     if not db then
