@@ -18,9 +18,11 @@ local currentRecipes = {}
 
 local function detectChanges()
     for i = 1, GetNumTradeSkills() do
-        local skillName = GetTradeSkillInfo(i)
+        local info = {GetTradeSkillInfo(i)}
         if not currentRecipes[i] then return true end
-        if currentRecipes[i] ~= skillName then return true end
+        for j = 1, 4 do
+            if info[j] ~= currentRecipes[i][j] then return true end
+        end
     end
     return false
 end
