@@ -54,7 +54,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20758,
 		itemSource = sources.Vendors,
-		itemVendors = {15419, 3346, 1318, 5757, 5158, 4617, 4228, 3012, 5758, },
+		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
 	},
 	[7454] = {
 		spellID = 7454,
@@ -234,7 +234,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11039,
 		itemSource = sources.Vendors,
-		itemVendors = {12043, 3954, },
+		itemVendors = {3954, 12043, },
 	},
 	[13421] = {
 		spellID = 13421,
@@ -253,6 +253,15 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11081,
 		itemSource = sources.WorldDrop,
+	},
+	[448624] = {
+		spellID = 448624,
+		requiresSeason = restrictions.SoD,
+		minSkill = 120,
+		itemID = 220792,
+		reagents = {4470, 10940, },
+		reagentQuantities = {1, 4, },
+		source = sources.Unknown,
 	},
 	[7857] = {
 		spellID = 7857,
@@ -342,7 +351,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11101,
 		itemSource = sources.Vendors,
-		itemVendors = {12043, 3954, },
+		itemVendors = {3954, 12043, },
 	},
 	[13538] = {
 		spellID = 13538,
@@ -408,7 +417,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20752,
 		itemSource = sources.Vendors,
-		itemVendors = {15419, 3346, 1318, 5757, 5158, 4617, 4228, 3012, 5758, },
+		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
 	},
 	[13622] = {
 		spellID = 13622,
@@ -499,7 +508,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11163,
 		itemSource = sources.Vendors,
-		itemVendors = {2821, 2381, },
+		itemVendors = {2381, 2821, },
 	},
 	[13648] = {
 		spellID = 13648,
@@ -649,7 +658,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20753,
 		itemSource = sources.Vendors,
-		itemVendors = {15419, 3346, 1318, 5757, 5158, 4617, 4228, 3012, 5758, },
+		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
 	},
 	[13695] = {
 		spellID = 13695,
@@ -910,6 +919,15 @@ addon.db.Enchanting = {
 		sourceItemID = 11225,
 		itemSource = sources.WorldDrop,
 	},
+	[446243] = {
+		spellID = 446243,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 221028,
+		reagents = {11176, 221021, },
+		reagentQuantities = {5, 1, },
+		source = sources.Unknown,
+	},
 	[17180] = {
 		spellID = 17180,
 		minSkill = 250,
@@ -1006,8 +1024,8 @@ addon.db.Enchanting = {
 		reagentQuantities = {2, 1, 1, 1, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 16216,
-		itemSource = sources.Vendors,
-		itemVendors = {5259},
+		itemSource = sources.ZoneDrop,
+		itemSourceZoneID = 1477,
 	},
 	[20017] = {
 		spellID = 20017,
@@ -1159,7 +1177,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 19446,
 		itemSource = sources.Vendors,
-		itemVendors = {11536, 10856, 10857, },
+		itemVendors = {10856, 11536, 10857, },
 	},
 	[27837] = {
 		spellID = 27837,
@@ -1354,7 +1372,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 19447,
 		itemSource = sources.Vendors,
-		itemVendors = {11536, 10856, 10857, },
+		itemVendors = {10856, 11536, 10857, },
 	},
 	[23803] = {
 		spellID = 23803,

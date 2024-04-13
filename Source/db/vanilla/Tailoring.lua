@@ -160,7 +160,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 6270,
 		itemSource = sources.Vendors,
-		itemVendors = {66, 3485, 3364, 3522, 4189, },
+		itemVendors = {66, 3364, 3485, 3522, 4189, },
 	},
 	[2397] = {
 		spellID = 2397,
@@ -219,7 +219,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 5771,
 		itemSource = sources.Vendors,
-		itemVendors = {3556, 3005, 4189, 843, },
+		itemVendors = {843, 3005, 3556, 4189, },
 	},
 	[7633] = {
 		spellID = 7633,
@@ -230,7 +230,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 6272,
 		itemSource = sources.Vendors,
-		itemVendors = {3556, 3499, 3485, 4168, 1250, },
+		itemVendors = {1250, 3556, 3485, 3499, 4168, },
 	},
 	[2964] = {
 		spellID = 2964,
@@ -351,7 +351,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 6274,
 		itemSource = sources.Vendors,
-		itemVendors = {1347, 2394, 3364, 5944, 843, },
+		itemVendors = {1347, 3364, 843, 2394, 5944, },
 	},
 	[2403] = {
 		spellID = 2403,
@@ -404,7 +404,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 5772,
 		itemSource = sources.Vendors,
-		itemVendors = {3537, 777, 4577, 1454, 3485, 3005, 3364, 1474, 3683, 4189, 5944, },
+		itemVendors = {3537, 4577, 777, 3364, 3005, 1454, 5944, 1474, 3485, 3683, 4189, },
 	},
 	[7643] = {
 		spellID = 7643,
@@ -415,7 +415,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 6275,
 		itemSource = sources.Vendors,
-		itemVendors = {4577, 1454, 3499, 2669, 4168, 1474, },
+		itemVendors = {4577, 2669, 1454, 1474, 3499, 4168, },
 	},
 	[3849] = {
 		spellID = 3849,
@@ -467,7 +467,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 211247,
 		itemSource = sources.Vendors,
-		itemVendors = {213077, 214070, 214099, 214098, 214096, 214101, },
+		itemVendors = {214070, 213077, 214099, 214101, 214098, 214096, },
 	},
 	[3839] = {
 		spellID = 3839,
@@ -1239,7 +1239,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 22307,
 		itemSource = sources.Vendors,
-		itemVendors = {15419, 3346, 1318, 5757, 5158, 4617, 4228, 3012, 5758, },
+		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
 	},
 	[12075] = {
 		spellID = 12075,
@@ -1390,6 +1390,33 @@ addon.db.Tailoring = {
 		reagents = {4339, 7077, 8343, 4304, },
 		reagentQuantities = {5, 1, 3, 2, },
 		source = sources.Trainer,
+	},
+	[446193] = {
+		spellID = 446193,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 220750,
+		reagents = {221021, 220688, 14256, 14048, },
+		reagentQuantities = {10, 1, 8, 8, },
+		source = sources.Unknown,
+	},
+	[446194] = {
+		spellID = 446194,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 220749,
+		reagents = {221021, 220688, 12803, 14048, },
+		reagentQuantities = {10, 1, 4, 10, },
+		source = sources.Unknown,
+	},
+	[446195] = {
+		spellID = 446195,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 220751,
+		reagents = {221021, 220688, 14256, 7080, 14048, },
+		reagentQuantities = {10, 1, 6, 1, 3, },
+		source = sources.Unknown,
 	},
 	[18401] = {
 		spellID = 18401,
@@ -1863,7 +1890,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 19216,
 		itemSource = sources.Vendors,
-		itemVendors = {11536, 10856, 10857, },
+		itemVendors = {10856, 11536, 10857, },
 	},
 	[18444] = {
 		spellID = 18444,
@@ -2123,7 +2150,7 @@ addon.db.Tailoring = {
 		source = sources.Item,
 		sourceItemID = 19217,
 		itemSource = sources.Vendors,
-		itemVendors = {11536, 10856, 10857, },
+		itemVendors = {10856, 11536, 10857, },
 	},
 	[23666] = {
 		spellID = 23666,

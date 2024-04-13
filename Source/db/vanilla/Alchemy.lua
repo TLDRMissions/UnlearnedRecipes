@@ -107,7 +107,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 5640,
 		itemSource = sources.Vendors,
-		itemVendors = {3335, 1669, 3499, 1685, },
+		itemVendors = {1669, 1685, 3335, 3499, },
 	},
 	[7836] = {
 		spellID = 7836,
@@ -165,7 +165,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 6053,
 		itemSource = sources.Vendors,
-		itemVendors = {3490, 3134, 1685, },
+		itemVendors = {1685, 3490, 3134, },
 	},
 	[7841] = {
 		spellID = 7841,
@@ -283,7 +283,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 5642,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 4226, 5178, 3348, },
+		itemVendors = {12245, 3348, 5178, 4226, },
 	},
 	[7181] = {
 		spellID = 7181,
@@ -318,7 +318,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 6068,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 4878, 2481, },
+		itemVendors = {12245, 2481, 4878, },
 	},
 	[7257] = {
 		spellID = 7257,
@@ -388,7 +388,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 6057,
 		itemSource = sources.Vendors,
-		itemVendors = {2848, 8157, 8158, 5594, },
+		itemVendors = {5594, 2848, 8157, 8158, },
 	},
 	[21923] = {
 		spellID = 21923,
@@ -475,7 +475,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 217399,
 		itemSource = sources.Vendors,
-		itemVendors = {213077, 214070, 214099, 214098, 214096, 214101, },
+		itemVendors = {214070, 213077, 214099, 214101, 214098, 214096, },
 	},
 	[11453] = {
 		spellID = 11453,
@@ -676,6 +676,33 @@ addon.db.Alchemy = {
 		itemSource = sources.ZoneDrop,
 		itemSourceZoneID = 357,
 	},
+	[446226] = {
+		spellID = 446226,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 221024,
+		reagents = {221021, 220688, 8925, },
+		reagentQuantities = {10, 1, 1, },
+		source = sources.Unknown,
+	},
+	[446851] = {
+		spellID = 446851,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 221313,
+		reagents = {221021, 8925, 221312, },
+		reagentQuantities = {5, 1, 5, },
+		source = sources.Unknown,
+	},
+	[448085] = {
+		spellID = 448085,
+		requiresSeason = restrictions.SoD,
+		minSkill = 250,
+		itemID = 222952,
+		reagents = {221021, 220688, 8925, },
+		reagentQuantities = {10, 1, 1, },
+		source = sources.Unknown,
+	},
 	[17551] = {
 		spellID = 17551,
 		minSkill = 250,
@@ -755,7 +782,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 13477,
 		itemSource = sources.Vendors,
-		itemVendors = {4226, 4610, },
+		itemVendors = {4610, 4226, },
 	},
 	[17554] = {
 		spellID = 17554,
@@ -766,7 +793,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 13478,
 		itemSource = sources.Vendors,
-		itemVendors = {5178, 3348, },
+		itemVendors = {3348, 5178, },
 	},
 	[17555] = {
 		spellID = 17555,
@@ -799,7 +826,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 13482,
 		itemSource = sources.Vendors,
-		itemVendors = {11536, 10856, 10857, },
+		itemVendors = {10856, 11536, 10857, },
 	},
 	[17560] = {
 		spellID = 17560,
