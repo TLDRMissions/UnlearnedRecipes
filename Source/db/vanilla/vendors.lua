@@ -162,10 +162,6 @@ addon.db.Vendors = {
 		zoneID = 4,
 		react = reacts.Ally
 	},
-	[7027] = {
-		name = 'Blackrock Slayer',
-		zoneID = 46,
-	},
 	[10856] = {
 		name = 'Argent Quartermaster Hasana',
 		zoneID = 85,
@@ -198,29 +194,9 @@ addon.db.Vendors = {
 		name = 'Rin\'wosho the Trader',
 		zoneID = 33,
 	},
-	[7428] = {
-		name = 'Frostmaul Giant',
-		zoneID = 618,
-	},
-	[7437] = {
-		name = 'Cobalt Mageweaver',
-		zoneID = 618,
-	},
 	[12944] = {
 		name = 'Lokhtos Darkbargainer',
 		zoneID = 1584,
-	},
-	[10363] = {
-		name = 'General Drakkisath',
-		zoneID = 1583,
-	},
-	[10508] = {
-		name = 'Ras Frostwhisper',
-		zoneID = 2057,
-	},
-	[10339] = {
-		name = 'Gyth',
-		zoneID = 1583,
 	},
 	[9179] = {
 		name = 'Jazzrik',
@@ -268,68 +244,12 @@ addon.db.Vendors = {
 		zoneID = 8,
 		react = reacts.Horde
 	},
-	[9028] = {
-		name = 'Grizzle',
-		zoneID = 1584,
-	},
-	[9543] = {
-		name = 'Ribbly Screwspigot',
-		zoneID = 1584,
-	},
-	[4366] = {
-		name = 'Strashaz Serpent Guard',
-		zoneID = 15,
-	},
-	[1836] = {
-		name = 'Scarlet Cavalier',
-		zoneID = 28,
-	},
-	[4364] = {
-		name = 'Strashaz Warrior',
-		zoneID = 15,
-	},
-	[1885] = {
-		name = 'Scarlet Smith',
-		zoneID = 28,
-	},
-	[10438] = {
-		name = 'Maleki the Pallid',
-		zoneID = 2017,
-	},
-	[10899] = {
-		name = 'Goraluk Anvilcrack',
-		zoneID = 1583,
-	},
-	[9736] = {
-		name = 'Quartermaster Zigris',
-		zoneID = 1583,
-	},
-	[1844] = {
-		name = 'Foreman Marcrid',
-		zoneID = 28,
-	},
-	[9596] = {
-		name = 'Bannok Grimaxe',
-		zoneID = 1583,
-	},
-	[10997] = {
-		name = 'Cannon Master Willey',
-		zoneID = 2017,
-	},
 	[15176] = {
 		name = 'Vargus',
 		zoneID = 1377,
 	},
 	[15471] = {
 		name = 'Lieutenant General Andorov',
-		zoneID = 3429,
-	},
-	[15263] = {
-		name = 'The Prophet Skeram',
-		zoneID = 3428,
-	},
-	[15340] = {
-		name = 'Moam',
 		zoneID = 3429,
 	},
 	[1684] = {
@@ -663,10 +583,6 @@ addon.db.Vendors = {
 		name = 'Innkeeper Fizzgrimble',
 		zoneID = 440,
 	},
-	[14354] = {
-		name = 'Pusillin',
-		zoneID = 2557,
-	},
 	[3346] = {
 		name = 'Kithas',
 		zoneID = 1637,
@@ -721,99 +637,23 @@ addon.db.Vendors = {
 		zoneID = 406,
 		react = reacts.Horde
 	},
-	[674] = {
-		name = 'Venture Co. Strip Miner',
-		zoneID = 33,
-	},
 	[4229] = {
 		name = 'Mythrin\'dir',
 		zoneID = 1657,
 		react = reacts.Ally
-	},
-	[2642] = {
-		name = 'Vilebranch Shadowcaster',
-		zoneID = 47,
-	},
-	[9024] = {
-		name = 'Pyromancer Loregrain',
-		zoneID = 1584,
-	},
-	[9025] = {
-		name = 'Lord Roccor',
-		zoneID = 1584,
 	},
 	[4561] = {
 		name = 'Daniel Bartlett',
 		zoneID = 1497,
 		react = reacts.Horde
 	},
-	[6201] = {
-		name = 'Legashi Rogue',
-		zoneID = 16,
-	},
 	[11189] = {
 		name = 'Qia',
 		zoneID = 618,
 	},
-	[9447] = {
-		name = 'Scarlet Warder',
-		zoneID = 139,
-	},
 	[12022] = {
 		name = 'Lorelae Wintersong',
 		zoneID = 493,
-	},
-	[7524] = {
-		name = 'Anguished Highborne',
-		zoneID = 618,
-	},
-	[9452] = {
-		name = 'Scarlet Enchanter',
-		zoneID = 139,
-	},
-	[7372] = {
-		name = 'Deadwind Warlock',
-		zoneID = 41,
-	},
-	[9198] = {
-		name = 'Spirestone Mystic',
-		zoneID = 1583,
-	},
-	[10317] = {
-		name = 'Blackhand Elite',
-		zoneID = 1583,
-	},
-	[10398] = {
-		name = 'Thuzadin Shadowcaster',
-		zoneID = 2017,
-	},
-	[9216] = {
-		name = 'Spirestone Warlord',
-		zoneID = 1583,
-	},
-	[10499] = {
-		name = 'Spectral Researcher',
-		zoneID = 2057,
-	},
-	[4494] = {
-		name = 'Scarlet Spellbinder',
-		zoneID = 28,
-	},
-	[10469] = {
-		name = 'Scholomance Adept',
-		zoneID = 2057,
-	},
-	[10422] = {
-		name = 'Crimson Sorcerer',
-		zoneID = 2017,
-	},
-	[15275] = {
-		name = 'Emperor Vek\'nilash',
-		zoneID = 3428,
-	},
-	[15276] = {
-		name = 'Emperor Vek\'lor',
-		zoneID = 3428,
 	},
 	[6730] = {
 		name = 'Jinky Twizzlefixxit',
@@ -895,37 +735,9 @@ addon.db.Vendors = {
 		name = 'Ruppo Zipcoil',
 		zoneID = 47,
 	},
-	[8920] = {
-		name = 'Weapon Technician',
-		zoneID = 1584,
-	},
 	[11185] = {
 		name = 'Xizzer Fizzbolt',
 		zoneID = 618,
-	},
-	[6195] = {
-		name = 'Spitelash Siren',
-		zoneID = 16,
-	},
-	[8897] = {
-		name = 'Doomforge Craftsman',
-		zoneID = 1584,
-	},
-	[10426] = {
-		name = 'Crimson Inquisitor',
-		zoneID = 2017,
-	},
-	[8900] = {
-		name = 'Doomforge Arcanasmith',
-		zoneID = 1584,
-	},
-	[10264] = {
-		name = 'Solakar Flamewreath',
-		zoneID = 1583,
-	},
-	[8561] = {
-		name = 'Mossflayer Shadowhunter',
-		zoneID = 139,
 	},
 	[843] = {
 		name = 'Gina MacGregor',
@@ -1021,22 +833,6 @@ addon.db.Vendors = {
 		zoneID = 47,
 		react = reacts.Ally
 	},
-	[5618] = {
-		name = 'Wastewander Bandit',
-		zoneID = 440,
-	},
-	[5617] = {
-		name = 'Wastewander Shadow Mage',
-		zoneID = 440,
-	},
-	[5616] = {
-		name = 'Wastewander Thief',
-		zoneID = 440,
-	},
-	[5615] = {
-		name = 'Wastewander Rogue',
-		zoneID = 440,
-	},
 	[12956] = {
 		name = 'Zannok Hidepiercer',
 		zoneID = 1377,
@@ -1055,53 +851,13 @@ addon.db.Vendors = {
 		name = 'Masat T\'andr',
 		zoneID = 8,
 	},
-	[5981] = {
-		name = 'Portal Seeker',
-		zoneID = 4,
-	},
 	[12957] = {
 		name = 'Blimo Gadgetspring',
 		zoneID = 16,
 	},
-	[7035] = {
-		name = 'Firegut Brute',
-		zoneID = 46,
-	},
-	[5226] = {
-		name = 'Murk Worm',
-		zoneID = 1477,
-	},
 	[12958] = {
 		name = 'Gigget Zipcoil',
 		zoneID = 47,
-	},
-	[7025] = {
-		name = 'Blackrock Soldier',
-		zoneID = 46,
-	},
-	[7112] = {
-		name = 'Jaedenar Cultist',
-		zoneID = 361,
-	},
-	[7107] = {
-		name = 'Jadefire Trickster',
-		zoneID = 361,
-	},
-	[7440] = {
-		name = 'Winterfall Den Watcher',
-		zoneID = 618,
-	},
-	[9259] = {
-		name = 'Firebrand Grunt',
-		zoneID = 1583,
-	},
-	[7158] = {
-		name = 'Deadwood Shaman',
-		zoneID = 361,
-	},
-	[6138] = {
-		name = 'Arkkoran Oracle',
-		zoneID = 16,
 	},
 	[12941] = {
 		name = 'Jase Farlane',
@@ -1110,58 +866,6 @@ addon.db.Vendors = {
 	[12959] = {
 		name = 'Nergal',
 		zoneID = 490,
-	},
-	[2644] = {
-		name = 'Vilebranch Hideskinner',
-		zoneID = 47,
-	},
-	[7441] = {
-		name = 'Winterfall Totemic',
-		zoneID = 618,
-	},
-	[6146] = {
-		name = 'Cliff Breaker',
-		zoneID = 16,
-	},
-	[6144] = {
-		name = 'Son of Arkkoroc',
-		zoneID = 16,
-	},
-	[10406] = {
-		name = 'Ghoul Ravener',
-		zoneID = 2017,
-	},
-	[8898] = {
-		name = 'Anvilrage Marshal',
-		zoneID = 1584,
-	},
-	[1813] = {
-		name = 'Decaying Horror',
-		zoneID = 28,
-	},
-	[7029] = {
-		name = 'Blackrock Battlemaster',
-		zoneID = 46,
-	},
-	[9260] = {
-		name = 'Firebrand Legionnaire',
-		zoneID = 1583,
-	},
-	[11582] = {
-		name = 'Scholomance Dark Summoner',
-		zoneID = 2057,
-	},
-	[10425] = {
-		name = 'Crimson Battle Mage',
-		zoneID = 2017,
-	},
-	[7438] = {
-		name = 'Winterfall Ursa',
-		zoneID = 618,
-	},
-	[8903] = {
-		name = 'Anvilrage Captain',
-		zoneID = 1584,
 	},
 	[15293] = {
 		name = 'Aendel Windspear',
@@ -1285,52 +989,12 @@ addon.db.Vendors = {
 		name = 'Darnall',
 		zoneID = 493,
 	},
-	[5861] = {
-		name = 'Twilight Fire Guard',
-		zoneID = 51,
-	},
-	[7864] = {
-		name = 'Lingering Highborne',
-		zoneID = 16,
-	},
-	[8538] = {
-		name = 'Unseen Servant',
-		zoneID = 139,
-	},
-	[7037] = {
-		name = 'Thaurissan Firewalker',
-		zoneID = 46,
-	},
-	[8551] = {
-		name = 'Dark Summoner',
-		zoneID = 139,
-	},
 	[15179] = {
 		name = 'Mishta',
 		zoneID = 1377,
 	},
-	[10384] = {
-		name = 'Spectral Citizen',
-		zoneID = 2017,
-	},
-	[8526] = {
-		name = 'Dark Caster',
-		zoneID = 139,
-	},
-	[9264] = {
-		name = 'Firebrand Pyromancer',
-		zoneID = 1583,
-	},
-	[1853] = {
-		name = 'Darkmaster Gandling',
-		zoneID = 2057,
-	},
 	[14371] = {
 		name = 'Shen\'dralar Provisioner',
-		zoneID = 2557,
-	},
-	[11487] = {
-		name = 'Magister Kalendris',
 		zoneID = 2557,
 	},
 }

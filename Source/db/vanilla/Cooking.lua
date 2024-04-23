@@ -828,8 +828,8 @@ addon.db.Cooking = {
 		reagentQuantities = {1, 1, },
 		source = sources.Item,
 		sourceItemID = 18267,
-		itemSource = sources.Vendors,
-		itemVendors = {14354},
+		itemSource = sources.Drop,
+		itemSourceDropName = 'Pusillin',
 	},
 	[24801] = {
 		spellID = 24801,
