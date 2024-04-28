@@ -72,6 +72,8 @@ TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
     			end
     			TradeSkillListScrollFrameScrollBar:SetValue(0);
     		end
+        else
+            TradeSkillFrame_Update()
         end
 		TradeSkillFrame_Update();
 	elseif ( event == "UNIT_PORTRAIT_UPDATE" ) then
