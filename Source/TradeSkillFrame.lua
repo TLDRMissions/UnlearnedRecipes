@@ -61,7 +61,7 @@ TradeSkillFrame:SetScript("OnEvent", function(self, event, ...)
 		TradeSkillCreateButton:Disable();
 		TradeSkillCreateAllButton:Disable();
 		
-        if detectChanges() then
+        if (selectionIndex <= GetNumTradeSkills()) or detectChanges() then
             wipe(dbCache)
             if ( GetTradeSkillSelectionIndex() > 1 and GetTradeSkillSelectionIndex() <= GetNumTradeSkills() ) then
                 TradeSkillFrame_SetSelection(GetTradeSkillSelectionIndex());
