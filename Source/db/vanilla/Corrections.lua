@@ -61,3 +61,9 @@ addon.db.Blacksmithing[6517].minSkill = 115
 
 -- Smelt Truesilver is taught by the trainer but not listed on wowhead for some reason
 addon.db.Mining[10098].source = sources.Trainer
+
+-- Transmute Mithril to Truesilver, incorrectly listed as learnable from Mining trainers
+addon.db.Alchemy[11480].source = sources.Item
+addon.db.Alchemy[11480].sourceItemID = 9305
+addon.db.Alchemy[11480].itemSource = sources.Vendors
+addon.db.Alchemy[11480].itemVendors = addon.db.Alchemy[11459].itemVendors
