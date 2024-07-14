@@ -54,7 +54,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20758,
 		itemSource = sources.Vendors,
-		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
+		itemVendors = {15419, 3346, 1318, 5758, 4228, 3012, 5158, 5757, 4617, },
 	},
 	[7454] = {
 		spellID = 7454,
@@ -197,7 +197,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 6349,
 		itemSource = sources.Vendors,
-		itemVendors = {3346, 5158, 3012, 5758, },
+		itemVendors = {3346, 5758, 3012, 5158, },
 	},
 	[7795] = {
 		spellID = 7795,
@@ -234,7 +234,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11039,
 		itemSource = sources.Vendors,
-		itemVendors = {3954, 12043, },
+		itemVendors = {12043, 3954, },
 	},
 	[13421] = {
 		spellID = 13421,
@@ -351,7 +351,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11101,
 		itemSource = sources.Vendors,
-		itemVendors = {3954, 12043, },
+		itemVendors = {12043, 3954, },
 	},
 	[13538] = {
 		spellID = 13538,
@@ -417,7 +417,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20752,
 		itemSource = sources.Vendors,
-		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
+		itemVendors = {15419, 3346, 1318, 5758, 4228, 3012, 5158, 5757, 4617, },
 	},
 	[13622] = {
 		spellID = 13622,
@@ -508,7 +508,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 11163,
 		itemSource = sources.Vendors,
-		itemVendors = {2381, 2821, },
+		itemVendors = {2821, 2381, },
 	},
 	[13648] = {
 		spellID = 13648,
@@ -658,7 +658,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 20753,
 		itemSource = sources.Vendors,
-		itemVendors = {3346, 5757, 4617, 5158, 1318, 3012, 4228, 15419, 5758, },
+		itemVendors = {15419, 3346, 1318, 5758, 4228, 3012, 5158, 5757, 4617, },
 	},
 	[13695] = {
 		spellID = 13695,
@@ -924,8 +924,8 @@ addon.db.Enchanting = {
 		requiresSeason = restrictions.SoD,
 		minSkill = 250,
 		itemID = 221028,
-		reagents = {11176, 221021, },
-		reagentQuantities = {5, 1, },
+		reagents = {11176, },
+		reagentQuantities = {5, },
 		source = sources.Unknown,
 	},
 	[17180] = {
@@ -1036,7 +1036,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 16217,
 		itemSource = sources.Vendors,
-		itemVendors = {4561, 4229, },
+		itemVendors = {4229, 4561, },
 	},
 	[20009] = {
 		spellID = 20009,
@@ -1177,7 +1177,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 19446,
 		itemSource = sources.Vendors,
-		itemVendors = {10856, 11536, 10857, },
+		itemVendors = {10856, 10857, 11536, },
 	},
 	[27837] = {
 		spellID = 27837,
@@ -1372,7 +1372,7 @@ addon.db.Enchanting = {
 		source = sources.Item,
 		sourceItemID = 19447,
 		itemSource = sources.Vendors,
-		itemVendors = {10856, 11536, 10857, },
+		itemVendors = {10856, 10857, 11536, },
 	},
 	[23803] = {
 		spellID = 23803,

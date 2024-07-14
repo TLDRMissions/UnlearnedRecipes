@@ -107,7 +107,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 5640,
 		itemSource = sources.Vendors,
-		itemVendors = {1669, 1685, 3335, 3499, },
+		itemVendors = {3335, 1669, 1685, 3499, },
 	},
 	[7836] = {
 		spellID = 7836,
@@ -127,7 +127,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 210709,
 		itemSource = sources.Vendors,
-		itemVendors = {3537, 3134, },
+		itemVendors = {3134, 3537, },
 	},
 	[3171] = {
 		spellID = 3171,
@@ -165,7 +165,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 6053,
 		itemSource = sources.Vendors,
-		itemVendors = {1685, 3490, 3134, },
+		itemVendors = {3490, 3134, 1685, },
 	},
 	[7841] = {
 		spellID = 7841,
@@ -388,7 +388,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 6057,
 		itemSource = sources.Vendors,
-		itemVendors = {5594, 2848, 8157, 8158, },
+		itemVendors = {5594, 8157, 2848, 8158, },
 	},
 	[21923] = {
 		spellID = 21923,
@@ -475,7 +475,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 217399,
 		itemSource = sources.Vendors,
-		itemVendors = {214070, 213077, 214099, 214101, 214098, 214096, },
+		itemVendors = {213077, 214070, 214101, 214096, 214099, 214098, },
 	},
 	[11453] = {
 		spellID = 11453,
@@ -571,10 +571,7 @@ addon.db.Alchemy = {
 		itemID = 3577,
 		reagents = {3575, },
 		reagentQuantities = {1, },
-		source = sources.Item,
-		sourceItemID = 9304,
-		itemSource = sources.Vendors,
-		itemVendors = {5594, },
+		source = sources.Trainer,
 	},
 	[11480] = {
 		spellID = 11480,
@@ -731,7 +728,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 9300,
 		itemSource = sources.Vendors,
-		itemVendors = {8177, 8178, },
+		itemVendors = {8178, 8177, },
 	},
 	[11478] = {
 		spellID = 11478,
@@ -782,7 +779,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 13477,
 		itemSource = sources.Vendors,
-		itemVendors = {4610, 4226, },
+		itemVendors = {4226, 4610, },
 	},
 	[17554] = {
 		spellID = 17554,
@@ -826,7 +823,7 @@ addon.db.Alchemy = {
 		source = sources.Item,
 		sourceItemID = 13482,
 		itemSource = sources.Vendors,
-		itemVendors = {10856, 11536, 10857, },
+		itemVendors = {10856, 10857, 11536, },
 	},
 	[17560] = {
 		spellID = 17560,
@@ -1112,7 +1109,8 @@ addon.db.Alchemy = {
 		reagentQuantities = {30, 10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 13518,
-		itemSource = sources.WorldDrop,
+		itemSource = sources.Vendors,
+		itemVendors = {227853, },
 	},
 	[17635] = {
 		spellID = 17635,
@@ -1122,8 +1120,8 @@ addon.db.Alchemy = {
 		reagentQuantities = {30, 10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 13519,
-		itemSource = sources.Drop,
-		itemSourceDropName = 'General Drakkisath',
+		itemSource = sources.Vendors,
+		itemVendors = {227853, },
 	},
 	[17636] = {
 		spellID = 17636,
@@ -1133,8 +1131,8 @@ addon.db.Alchemy = {
 		reagentQuantities = {30, 10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 13520,
-		itemSource = sources.ZoneDrop,
-		itemSourceZoneID = 2017,
+		itemSource = sources.Vendors,
+		itemVendors = {227853, },
 	},
 	[17637] = {
 		spellID = 17637,
@@ -1144,8 +1142,8 @@ addon.db.Alchemy = {
 		reagentQuantities = {30, 10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 13521,
-		itemSource = sources.Drop,
-		itemSourceDropName = 'Ras Frostwhisper',
+		itemSource = sources.Vendors,
+		itemVendors = {227853, },
 	},
 	[17638] = {
 		spellID = 17638,
@@ -1155,8 +1153,8 @@ addon.db.Alchemy = {
 		reagentQuantities = {30, 10, 1, 1, },
 		source = sources.Item,
 		sourceItemID = 13522,
-		itemSource = sources.Drop,
-		itemSourceDropName = 'Gyth',
+		itemSource = sources.Vendors,
+		itemVendors = {227853, },
 	},
 	[24266] = {
 		spellID = 24266,

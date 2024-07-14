@@ -218,7 +218,7 @@ addon.db.Engineering = {
 		source = sources.Item,
 		sourceItemID = 13309,
 		itemSource = sources.Vendors,
-		itemVendors = {6730, 2682, },
+		itemVendors = {2682, 6730, },
 	},
 	[3940] = {
 		spellID = 3940,
@@ -480,7 +480,7 @@ addon.db.Engineering = {
 		source = sources.Item,
 		sourceItemID = 7561,
 		itemSource = sources.Vendors,
-		itemVendors = {12246, 3537, 4086, 3134, },
+		itemVendors = {12246, 3134, 4086, 3537, },
 	},
 	[3960] = {
 		spellID = 3960,
@@ -589,7 +589,7 @@ addon.db.Engineering = {
 		source = sources.Item,
 		sourceItemID = 13310,
 		itemSource = sources.Vendors,
-		itemVendors = {12246, 2685, },
+		itemVendors = {2685, 12246, },
 	},
 	[3965] = {
 		spellID = 3965,
@@ -725,6 +725,18 @@ addon.db.Engineering = {
 		sourceItemID = 7742,
 		itemSource = sources.Vendors,
 		itemVendors = {6777, },
+	},
+	[431362] = {
+		spellID = 431362,
+		requiresSeason = restrictions.SoD,
+		minSkill = 205,
+		itemID = 211427,
+		reagents = {1210, 9262, 16583, },
+		reagentQuantities = {4, 1, 1, },
+		source = sources.Item,
+		sourceItemID = 212230,
+		itemSource = sources.Vendors,
+		itemVendors = {213077, 214070, 214101, 214096, 214099, 214098, },
 	},
 	[12715] = {
 		spellID = 12715,
@@ -1253,7 +1265,7 @@ addon.db.Engineering = {
 		source = sources.Item,
 		sourceItemID = 16041,
 		itemSource = sources.Vendors,
-		itemVendors = {5175, 3413, },
+		itemVendors = {3413, 5175, },
 	},
 	[19791] = {
 		spellID = 19791,
@@ -1264,7 +1276,7 @@ addon.db.Engineering = {
 		source = sources.Item,
 		sourceItemID = 16042,
 		itemSource = sources.Vendors,
-		itemVendors = {5175, 3413, },
+		itemVendors = {3413, 5175, },
 	},
 	[19792] = {
 		spellID = 19792,
@@ -1624,16 +1636,15 @@ addon.db.Engineering = {
 		itemSource = sources.Vendors,
 		itemVendors = {14921},
 	},
-	[431362] = {
-		spellID = 431362,
+	[461710] = {
+		spellID = 461710,
 		requiresSeason = restrictions.SoD,
-		minSkill = 300,
-		itemID = 211427,
-		reagents = {1210, 9262, 16583, },
-		reagentQuantities = {4, 1, 1, },
+		minSkill = 320,
+		itemID = 227849,
+		reagents = {17010, 17011, 12360, 16006, 16000, },
+		reagentQuantities = {4, 2, 6, 2, 2, },
 		source = sources.Item,
-		sourceItemID = 212230,
-		itemSource = sources.Vendors,
-		itemVendors = {214070, 213077, 214099, 214101, 214098, 214096, },
+		sourceItemID = 228304,
+		itemSource = '',
 	},
 }

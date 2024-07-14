@@ -3,14 +3,6 @@ local sources = addon.Enums.Sources
 local restrictions = addon.Enums.Restrictions
 
 addon.db.Cooking = {
-	[818] = {
-		spellID = 818,
-		minSkill = 1,
-		itemID = 0,
-		reagents = {4470, },
-		reagentQuantities = {1, },
-		source = sources.Unknown,
-	},
 	[2538] = {
 		spellID = 2538,
 		minSkill = 1,
@@ -36,7 +28,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6325,
 		itemSource = sources.Vendors,
-		itemVendors = {1684, 66, 5494, 4265, 4574, 5940, 3029, 3550, 8508, },
+		itemVendors = {5494, 66, 5940, 4574, 3029, 1684, 3550, 4265, 8508, },
 	},
 	[7752] = {
 		spellID = 7752,
@@ -47,7 +39,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6326,
 		itemSource = sources.Vendors,
-		itemVendors = {10118, 3550, 4305, 5162, 5942, },
+		itemVendors = {5162, 4305, 5942, 3550, 10118, },
 	},
 	[8604] = {
 		spellID = 8604,
@@ -79,7 +71,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17200,
 		itemSource = sources.Vendors,
-		itemVendors = {216902, 13433, 13435, 13420, 13429, 13432, },
+		itemVendors = {13420, 13433, 13432, 13429, 13435, 216902, },
 	},
 	[2539] = {
 		spellID = 2539,
@@ -111,6 +103,14 @@ addon.db.Cooking = {
 		itemSource = sources.Vendors,
 		itemVendors = {3881},
 	},
+	[818] = {
+		spellID = 818,
+		minSkill = 25,
+		itemID = 0,
+		reagents = {4470, },
+		reagentQuantities = {1, },
+		source = sources.Unknown,
+	},
 	[2795] = {
 		spellID = 2795,
 		minSkill = 25,
@@ -141,7 +141,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17201,
 		itemSource = sources.Vendors,
-		itemVendors = {216902, 13433, 13435, 13420, 13429, 13432, },
+		itemVendors = {13420, 13433, 13432, 13429, 13435, 216902, },
 	},
 	[8607] = {
 		spellID = 8607,
@@ -152,7 +152,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6892,
 		itemSource = sources.Vendors,
-		itemVendors = {1465, 3556, },
+		itemVendors = {3556, 1465, },
 	},
 	[2541] = {
 		spellID = 2541,
@@ -210,7 +210,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6328,
 		itemSource = sources.Vendors,
-		itemVendors = {1684, 5748, 66, 3027, 4265, 4574, 5940, 5162, },
+		itemVendors = {66, 3027, 5940, 4574, 5162, 1684, 4265, 5748, },
 	},
 	[7754] = {
 		spellID = 7754,
@@ -232,7 +232,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6368,
 		itemSource = sources.Vendors,
-		itemVendors = {3497, 4307, 5748, 5494, 10118, 3178, 3333, 4305, 5942, 4553, },
+		itemVendors = {5494, 4305, 3497, 5942, 4553, 3333, 4307, 10118, 3178, 5748, },
 	},
 	[3371] = {
 		spellID = 3371,
@@ -251,8 +251,8 @@ addon.db.Cooking = {
 		reagents = {2452, 159, },
 		reagentQuantities = {1, 1, },
 		source = sources.Item,
-		sourceItemID = 7678,
-		itemSource = '',
+		sourceItemID = 18160,
+		itemSource = 'Quest, Vendor',
 	},
 	[2543] = {
 		spellID = 2543,
@@ -299,7 +299,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 21099,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 5483, 4223, 12033, 2381, 3027, 3085, 3400, 4265, 5160, 8307, 14738, 4553, 2397, },
+		itemVendors = {2664, 3027, 5483, 4553, 5160, 4223, 4265, 2381, 3085, 2397, 14738, 8307, 12033, 3400, },
 	},
 	[2545] = {
 		spellID = 2545,
@@ -353,7 +353,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 5528,
 		itemSource = sources.Vendors,
-		itemVendors = {4307, 4305, },
+		itemVendors = {4305, 4307, },
 	},
 	[2547] = {
 		spellID = 2547,
@@ -395,7 +395,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6330,
 		itemSource = sources.Vendors,
-		itemVendors = {3497, 5494, 3027, 3029, 2383, 4553, 2397, },
+		itemVendors = {5494, 3027, 3497, 4553, 3029, 2383, 2397, },
 	},
 	[2548] = {
 		spellID = 2548,
@@ -519,7 +519,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6369,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 4307, 12033, 3178, 4574, 12962, 3333, 5162, 2383, },
+		itemVendors = {2664, 4574, 5162, 3333, 2383, 4307, 12962, 3178, 12033, },
 	},
 	[3400] = {
 		spellID = 3400,
@@ -568,7 +568,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12228,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 1148, 734, 2821, 4879, 4897, 2810, },
+		itemVendors = {12245, 2821, 2810, 1148, 734, 4879, 4897, },
 	},
 	[15856] = {
 		spellID = 15856,
@@ -579,7 +579,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12229,
 		itemSource = sources.Vendors,
-		itemVendors = {7947, 12246, 8145, },
+		itemVendors = {7947, 8145, 12246, },
 	},
 	[15861] = {
 		spellID = 15861,
@@ -601,7 +601,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12232,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 4879, 989, 9636, },
+		itemVendors = {12245, 4879, 9636, 989, },
 	},
 	[15865] = {
 		spellID = 15865,
@@ -623,7 +623,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17062,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 4307, 12033, 3178, 4574, 12962, 3333, 5162, 2383, },
+		itemVendors = {2664, 4574, 5162, 3333, 2383, 4307, 12962, 3178, 12033, },
 	},
 	[25954] = {
 		spellID = 25954,
@@ -634,7 +634,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 21219,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 5483, 4223, 12033, 2381, 3027, 3085, 3400, 4265, 5160, 8307, 14738, 4553, 2397, },
+		itemVendors = {2664, 3027, 5483, 4553, 5160, 4223, 4265, 2381, 3085, 2397, 14738, 8307, 12033, 3400, },
 	},
 	[15906] = {
 		spellID = 15906,
@@ -675,7 +675,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 16111,
 		itemSource = sources.Vendors,
-		itemVendors = {989, 1149, 4305, },
+		itemVendors = {4305, 989, 1149, },
 	},
 	[15933] = {
 		spellID = 15933,
@@ -686,7 +686,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 16110,
 		itemSource = sources.Vendors,
-		itemVendors = {2803, 2806, 11187, },
+		itemVendors = {2803, 11187, 2806, },
 	},
 	[18238] = {
 		spellID = 18238,
@@ -741,7 +741,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 18046,
 		itemSource = sources.Vendors,
-		itemVendors = {4782, 8125, 7733, },
+		itemVendors = {8125, 4782, 7733, },
 	},
 	[18240] = {
 		spellID = 18240,
