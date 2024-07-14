@@ -67,6 +67,16 @@ function addon.GetRecipeRequirementText(data, itemCallback)
     return requirement, source, vendors
 end
 
+function addon.SortDB(db)
+    local function comparator(a, b)
+        if a.minSkill == b.minSkill then
+            return a.spellID < b.spellID
+        end
+        return a.minSkill < b.minSkill
+    end
+    table.sort(db, comparator)
+end
+
 function addon.GetRecipeDB(professionName, getCraftInfoFunc, currentSkill, includeHeaders, numCrafts)
     local skipCache = false
     local db
@@ -118,6 +128,12 @@ function addon.GetRecipeDB(professionName, getCraftInfoFunc, currentSkill, inclu
                 table.insert(unknownDB, data)
             end
         end
+        
+        addon.SortDB(trainerDB)
+        addon.SortDB(recipeVendorDB)
+        addon.SortDB(recipeWorldDropDB)
+        addon.SortDB(recipeOtherDB)
+        addon.SortDB(unknownDB)
 
         if includeHeaders then
             if #trainerDB > 0 then
