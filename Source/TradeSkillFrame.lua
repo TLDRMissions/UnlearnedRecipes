@@ -242,6 +242,9 @@ function TradeSkillFrame_Update()
 	end
 end
 
+-- Prevent possible infinite loop, not sure of the cause
+local noInfinite = true
+
 function TradeSkillFrame_SetSelection(id)
     selectionIndex = id
     local numTradeSkills = GetNumTradeSkills();
@@ -332,13 +335,15 @@ function TradeSkillFrame_SetSelection(id)
     
 	local skillName, skillType, numAvailable, isExpanded = GetTradeSkillInfo(id);
 	TradeSkillHighlightFrame:Show();
-	if ( skillType == "header" ) then
+	if ( skillType == "header" ) and noInfinite then
+        noInfinite = false
 		TradeSkillHighlightFrame:Hide();
 		if ( isExpanded ) then
 			CollapseTradeSkillSubClass(id);
 		else
 			ExpandTradeSkillSubClass(id);
 		end
+        noInfinite = true
 		return;
 	end
 	TradeSkillFrame.selectedSkill = id;
