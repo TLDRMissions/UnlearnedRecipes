@@ -617,7 +617,7 @@ for i = 1, 8 do
             local numTradeSkills = GetNumCrafts();
             local db = dbCache[GetCraftName()]
             local data = db[CraftFrame.selectedSkill - numTradeSkills]
-            if data.reagents then
+            if data and data.reagents then
                 GameTooltip:SetItemByID(data.reagents[self:GetID()])
             end
         end
