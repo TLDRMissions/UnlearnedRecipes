@@ -28,7 +28,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6325,
 		itemSource = sources.Vendors,
-		itemVendors = {5494, 66, 5940, 4574, 3029, 1684, 3550, 4265, 8508, },
+		itemVendors = {66, 5494, 5940, 1684, 3550, 4574, 4265, 8508, 3029, },
 	},
 	[7752] = {
 		spellID = 7752,
@@ -39,7 +39,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6326,
 		itemSource = sources.Vendors,
-		itemVendors = {5162, 4305, 5942, 3550, 10118, },
+		itemVendors = {4305, 3550, 10118, 5942, 5162, },
 	},
 	[8604] = {
 		spellID = 8604,
@@ -71,7 +71,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17200,
 		itemSource = sources.Vendors,
-		itemVendors = {13420, 13433, 13432, 13429, 13435, 216902, },
+		itemVendors = {13420, 13429, 13432, 13435, 13433, 216902, },
 	},
 	[2539] = {
 		spellID = 2539,
@@ -141,7 +141,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17201,
 		itemSource = sources.Vendors,
-		itemVendors = {13420, 13433, 13432, 13429, 13435, 216902, },
+		itemVendors = {13420, 13429, 13432, 13435, 13433, 216902, },
 	},
 	[8607] = {
 		spellID = 8607,
@@ -210,7 +210,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6328,
 		itemSource = sources.Vendors,
-		itemVendors = {66, 3027, 5940, 4574, 5162, 1684, 4265, 5748, },
+		itemVendors = {66, 5940, 3027, 1684, 5748, 4574, 4265, 5162, },
 	},
 	[7754] = {
 		spellID = 7754,
@@ -232,7 +232,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6368,
 		itemSource = sources.Vendors,
-		itemVendors = {5494, 4305, 3497, 5942, 4553, 3333, 4307, 10118, 3178, 5748, },
+		itemVendors = {5494, 4305, 3333, 4307, 5748, 3178, 10118, 3497, 5942, 4553, },
 	},
 	[3371] = {
 		spellID = 3371,
@@ -299,7 +299,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 21099,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 3027, 5483, 4553, 5160, 4223, 4265, 2381, 3085, 2397, 14738, 8307, 12033, 3400, },
+		itemVendors = {2664, 3027, 2397, 3400, 5483, 2381, 3085, 8307, 12033, 4265, 4223, 5160, 14738, 4553, },
 	},
 	[2545] = {
 		spellID = 2545,
@@ -320,8 +320,7 @@ addon.db.Cooking = {
 		reagentQuantities = {1, 1, },
 		source = sources.Item,
 		sourceItemID = 6661,
-		itemSource = sources.ZoneDrop,
-		itemSourceZoneID = 17,
+		itemSource = sources.WorldDrop,
 	},
 	[3372] = {
 		spellID = 3372,
@@ -395,7 +394,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6330,
 		itemSource = sources.Vendors,
-		itemVendors = {5494, 3027, 3497, 4553, 3029, 2383, 2397, },
+		itemVendors = {5494, 3027, 2397, 2383, 3497, 3029, 4553, },
 	},
 	[2548] = {
 		spellID = 2548,
@@ -519,7 +518,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 6369,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 4574, 5162, 3333, 2383, 4307, 12962, 3178, 12033, },
+		itemVendors = {2664, 3333, 4307, 2383, 4574, 3178, 12033, 12962, 5162, },
 	},
 	[3400] = {
 		spellID = 3400,
@@ -568,7 +567,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12228,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 2821, 2810, 1148, 734, 4879, 4897, },
+		itemVendors = {2810, 2821, 1148, 12245, 4897, 4879, 734, },
 	},
 	[15856] = {
 		spellID = 15856,
@@ -590,7 +589,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12231,
 		itemSource = sources.Vendors,
-		itemVendors = {12245, 1148, 734, },
+		itemVendors = {1148, 12245, 734, },
 	},
 	[15863] = {
 		spellID = 15863,
@@ -623,7 +622,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 17062,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 4574, 5162, 3333, 2383, 4307, 12962, 3178, 12033, },
+		itemVendors = {2664, 3333, 4307, 2383, 4574, 3178, 12033, 12962, 5162, },
 	},
 	[25954] = {
 		spellID = 25954,
@@ -634,7 +633,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 21219,
 		itemSource = sources.Vendors,
-		itemVendors = {2664, 3027, 5483, 4553, 5160, 4223, 4265, 2381, 3085, 2397, 14738, 8307, 12033, 3400, },
+		itemVendors = {2664, 3027, 2397, 3400, 5483, 2381, 3085, 8307, 12033, 4265, 4223, 5160, 14738, 4553, },
 	},
 	[15906] = {
 		spellID = 15906,
@@ -645,7 +644,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 12239,
 		itemSource = sources.Vendors,
-		itemVendors = {12246, 4879, 4897, },
+		itemVendors = {12246, 4897, 4879, },
 	},
 	[15910] = {
 		spellID = 15910,
@@ -675,7 +674,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 16111,
 		itemSource = sources.Vendors,
-		itemVendors = {4305, 989, 1149, },
+		itemVendors = {4305, 1149, 989, },
 	},
 	[15933] = {
 		spellID = 15933,
@@ -741,7 +740,7 @@ addon.db.Cooking = {
 		source = sources.Item,
 		sourceItemID = 18046,
 		itemSource = sources.Vendors,
-		itemVendors = {8125, 4782, 7733, },
+		itemVendors = {4782, 8125, 7733, },
 	},
 	[18240] = {
 		spellID = 18240,
@@ -849,5 +848,29 @@ addon.db.Cooking = {
 		sourceItemID = 21025,
 		itemSource = sources.Quest,
 		itemSourceQuestID = 8586,
+	},
+	[470359] = {
+		spellID = 470359,
+		requiresSeason = restrictions.SoDPhase6,
+		minSkill = 325,
+		itemID = 232436,
+		reagents = {13888, 227813, },
+		reagentQuantities = {1, 1, },
+		source = sources.Item,
+		sourceItemID = 232437,
+		itemSource = sources.ZoneDrop,
+		itemSourceZoneID = 1377,
+	},
+	[470370] = {
+		spellID = 470370,
+		requiresSeason = restrictions.SoDPhase6,
+		minSkill = 325,
+		itemID = 232438,
+		reagents = {13758, },
+		reagentQuantities = {1, },
+		source = sources.Item,
+		sourceItemID = 232443,
+		itemSource = sources.ZoneDrop,
+		itemSourceZoneID = 1377,
 	},
 }

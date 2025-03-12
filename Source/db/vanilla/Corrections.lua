@@ -47,7 +47,7 @@ if isSoD then
 else
     for _, prof in pairs(addon.db) do
         for id, data in pairs(prof) do
-            if data.requiresSeason == addon.Enums.Restrictions.SoD then
+            if data.requiresSeason then
                 prof[id] = nil
             end
         end

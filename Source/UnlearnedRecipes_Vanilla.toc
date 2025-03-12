@@ -1,4 +1,4 @@
-## Interface: 11503
+## Interface: 11506
 ## Title: Unlearned Recipes
 ## Version: @project-version@
 ## Notes: Displays profession recipes you have not yet learned

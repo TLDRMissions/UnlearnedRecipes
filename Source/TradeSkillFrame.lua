@@ -29,10 +29,14 @@ end
 
 function TradeSkillFrame_OnShow(self)
 	CloseDropDownMenus();
-	TradeSkillSubClassDropDown:Hide();
-	TradeSkillSubClassDropDown:Show();
-	TradeSkillInvSlotDropDown:Hide();
-	TradeSkillInvSlotDropDown:Show();
+    if TradeSkillSubClassDropDown then
+        TradeSkillSubClassDropDown:Hide();
+        TradeSkillSubClassDropDown:Show();
+    end
+	if TradeSkillInvSlotDropDown then
+        TradeSkillInvSlotDropDown:Hide();
+        TradeSkillInvSlotDropDown:Show();
+    end
 	ShowUIPanel(TradeSkillFrame);
 	TradeSkillCreateButton:Disable();
 	TradeSkillCreateAllButton:Disable();

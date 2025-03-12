@@ -99,4 +99,16 @@ addon.db.Mining = {
 		reagentQuantities = {1, 10, 1, 3, },
 		source = sources.Unknown,
 	},
+	[1213638] = {
+		spellID = 1213638,
+		requiresSeason = restrictions.SoDPhase6,
+		minSkill = 315,
+		itemID = 234003,
+		reagents = {12655, 22203, },
+		reagentQuantities = {2, 2, },
+		source = sources.Item,
+		sourceItemID = 234278,
+		itemSource = sources.Vendors,
+		itemVendors = {15176},
+	},
 }
